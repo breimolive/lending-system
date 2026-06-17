@@ -2,8 +2,6 @@ import {inject, NgModule} from '@angular/core';
 import {ActivatedRouteSnapshot, createUrlTreeFromSnapshot, RouterModule, RouterStateSnapshot, Routes, UrlTree} from '@angular/router';
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {LoginComponent} from "./login/login.component";
-import {RegisterComponent} from "./register/register.component";
-import {PrivateComponent} from "./private/private.component";
 import {ApiService} from "./api.service";
 import {catchError, map, Observable, of, tap} from "rxjs";
 
@@ -21,9 +19,7 @@ function isLoggedIn(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): 
 }
 
 const routes: Routes = [
-  { path: '', component: PrivateComponent, canActivate: [isLoggedIn]},
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
