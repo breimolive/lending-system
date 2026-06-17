@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Server.Database.Entities;
 
-namespace Server.Database;
+namespace Server.Database.Configurations;
 
 public class UserEntityTypeConfiguration: IEntityTypeConfiguration<UserEntity>
 {
@@ -25,12 +26,16 @@ public class UserEntityTypeConfiguration: IEntityTypeConfiguration<UserEntity>
             .IsRequired();
 
         builder
-            .Property(e => e.Hash)
-            .HasMaxLength(70)
+            .Property(e => e.PasswordHash)
+            .HasMaxLength(UserEntity.MaxPasswordHashLength)
             .IsRequired();
 
-        builder.Property(e => e.Salt)
-            .HasMaxLength(40)
+        builder.Property(e => e.PasswordSalt)
+            .HasMaxLength(UserEntity.MaxPasswordSaltLength)
             .IsRequired();
+
+        builder
+            .HasIndex(x => x.Email)
+            .IsUnique();
     }
 }
