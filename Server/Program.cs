@@ -16,6 +16,7 @@ builder.Services.AddControllers()
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 builder.Services.AddProblemDetails();
 
+builder.Services.AddTransient<DatabaseContextSeed>();
 builder.Services.AddScoped<EquipmentService>();
 builder.Services.AddScoped<LoanService>();
 builder.Services.AddScoped<UserService>();
