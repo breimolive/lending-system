@@ -144,11 +144,21 @@ namespace Server.Migrations
                 column: "CurrentLoanId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Equipment_Name",
+                table: "Equipment",
+                column: "Name");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Equipment_SerialNumber",
                 table: "Equipment",
                 column: "SerialNumber",
                 unique: true,
                 filter: "[SerialNumber] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Equipment_Status",
+                table: "Equipment",
+                column: "Status");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Loans_BorrowerId",

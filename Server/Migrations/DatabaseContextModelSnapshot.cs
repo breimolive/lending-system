@@ -132,9 +132,13 @@ namespace Server.Migrations
 
                     b.HasIndex("CurrentLoanId");
 
+                    b.HasIndex("Name");
+
                     b.HasIndex("SerialNumber")
                         .IsUnique()
                         .HasFilter("[SerialNumber] IS NOT NULL");
+
+                    b.HasIndex("Status");
 
                     b.ToTable("Equipment");
                 });

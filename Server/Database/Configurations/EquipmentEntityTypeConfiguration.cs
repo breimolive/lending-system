@@ -38,5 +38,9 @@ public class EquipmentEntityTypeConfiguration : IEntityTypeConfiguration<Equipme
         builder
             .HasIndex(x => x.SerialNumber)
             .IsUnique();
+
+        // Indexes for filtering
+        builder.HasIndex(x => x.Name);
+        builder.HasIndex(x => x.Status);
     }
 }

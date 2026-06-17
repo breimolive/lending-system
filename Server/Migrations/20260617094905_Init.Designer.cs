@@ -12,7 +12,7 @@ using Server.Database;
 namespace Server.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20260617084719_Init")]
+    [Migration("20260617094905_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -135,9 +135,13 @@ namespace Server.Migrations
 
                     b.HasIndex("CurrentLoanId");
 
+                    b.HasIndex("Name");
+
                     b.HasIndex("SerialNumber")
                         .IsUnique()
                         .HasFilter("[SerialNumber] IS NOT NULL");
+
+                    b.HasIndex("Status");
 
                     b.ToTable("Equipment");
                 });
