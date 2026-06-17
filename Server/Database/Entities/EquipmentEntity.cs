@@ -117,6 +117,10 @@ public class EquipmentEntity
 
     public EquipmentDto ToDto()
     {
+        if (Category is null)
+            throw new InvalidOperationException(
+                $"Equipment {Id} has null Category. Ensure `Category` is included when querying the database before mapping to DTO (use Include(e => e.Category)).");
+
         return new EquipmentDto
         {
             Id = Id,

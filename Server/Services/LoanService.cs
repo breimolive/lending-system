@@ -18,6 +18,9 @@ public class LoanService
     public async Task<List<LoanDto>> GetAllLoansForAnEquipment(Guid equipmentId)
     {
         var loans = await _context.Loans
+            .Include(x => x.PreformedBy)
+            .Include(x => x.Equipment)
+            .ThenInclude(e => e.Category)
             .Where(x => x.EquipmentId == equipmentId)
             .ToListAsync();
 
@@ -34,6 +37,9 @@ public class LoanService
     public async Task<LoanDto> GetLoan(Guid loanId)
     {
         var loan = await _context.Loans
+            .Include(x => x.PreformedBy)
+            .Include(x => x.Equipment).ThenInclude(x => x.Category)
+            .Where(x => !x.Equipment.IsDeleted)
             .FirstOrDefaultAsync(x => x.Id == loanId);
 
         return loan == null ? throw new NotFoundException("Loan not found") : loan.ToDto();
@@ -42,6 +48,7 @@ public class LoanService
     public async Task<LoanDto> CreateLoan(LoanCreateDto request)
     {
         var equipment = await _context.Equipment
+            .Include(e => e.Category)
             .FirstOrDefaultAsync(x => x.Id == request.EquipmentId);
 
         var borrower = await _context.Borrowers
@@ -66,6 +73,7 @@ public class LoanService
         }
 
         var loan = new LoanEntity(request.LoanDate, request.DueDate, request.Status, equipment, borrower, preformedBy);
+        equipment.UpdateStatus(EquipmentStatus.InUse);
         _context.Loans.Add(loan);
         await _context.SaveChangesAsync();
 
@@ -82,12 +90,19 @@ public class LoanService
         }
 
         var loan = await _context.Loans
-            .Where(x => x.PreformedById == userId)
-            .FirstOrDefaultAsync(x => x.Id == loanId);
+            .Include(x => x.PreformedBy)
+            .Include(x => x.Equipment).ThenInclude(x => x.Category)
+            .Where(x => x.PreformedById == userId && x.Id == loanId && !x.Equipment.IsDeleted)
+            .FirstOrDefaultAsync();
 
         if (loan == null)
         {
             throw new NotFoundException("Loan not found");
+        }
+
+        if (loan.Status == LoanStatus.Returned)
+        {
+            throw new Exception("Loan already returned");
         }
 
         if (loan.Status != LoanStatus.Returned)

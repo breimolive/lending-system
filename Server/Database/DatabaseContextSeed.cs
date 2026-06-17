@@ -35,6 +35,8 @@ public class DatabaseContextSeed
         await SeedUser();
         await SeedCategory();
         await SeedEquipment();
+        await SeedBorrower();
+        await SeedLoan();
     }
 
     private async Task SeedUser()

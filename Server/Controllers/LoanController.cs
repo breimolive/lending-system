@@ -68,7 +68,7 @@ public class LoanController : ControllerBase
     [HttpPost("return/{loanId}")]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(typeof(void), StatusCodes.Status200OK)]
-    public async Task ReturnLoan([FromBody] string loanId)
+    public async Task ReturnLoan([FromRoute] string loanId)
     {
         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (userId == null)

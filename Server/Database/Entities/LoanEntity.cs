@@ -52,9 +52,17 @@ public class LoanEntity
 
         UpdatedAt = DateTime.UtcNow;
     }
-    
+
     public LoanDto ToDto()
     {
+        if (Equipment is null)
+            throw new InvalidOperationException(
+                $"Loan {Id} has null Equipment. Ensure `Equipment` is included when querying the database before mapping to DTO (use Include(l => l.Equipment)).");
+
+        if (PreformedBy is null)
+            throw new InvalidOperationException(
+                $"Loan {Id} has null PreformedBy. Ensure `PreformedBy` is included when querying the database before mapping to DTO (use Include(l => l.PreformedBy)).");
+
         return new LoanDto
         {
             Id = Id,

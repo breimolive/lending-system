@@ -18,8 +18,10 @@ public class EquipmentService
     public async Task<List<EquipmentDto>> GetEquipments(EquipmentQueryDto? queryDto)
     {
         var query = _context.Equipment
-            .Include(x => x.CurrentLoan)
+            .Include(x => x.CurrentLoan).ThenInclude(x => x!.PreformedBy)
+            .Include(x => x.CurrentLoan).ThenInclude(x => x!.Equipment).ThenInclude(x => x.Category)
             .Include(x => x.Category)
+            .Where(x=>!x.IsDeleted)
             .AsQueryable();
 
         if (queryDto == null)
@@ -82,8 +84,10 @@ public class EquipmentService
     public async Task<EquipmentDto> GetEquipment(Guid id)
     {
         var equipment = await _context.Equipment
-            .Include(x => x.CurrentLoan)
+            .Include(x => x.CurrentLoan).ThenInclude(x => x!.PreformedBy)
+            .Include(x => x.CurrentLoan).ThenInclude(x => x!.Equipment).ThenInclude(x => x.Category)
             .Include(x => x.Category)
+            .Where(x=>!x.IsDeleted)
             .FirstOrDefaultAsync(x => x.Id == id);
 
         return equipment == null ? throw new NotFoundException("Equipment not found") : equipment.ToDto();
@@ -91,7 +95,7 @@ public class EquipmentService
 
     public async Task<EquipmentDto> CreateEquipment(EquipmentCreateDto createDto)
     {
-        var category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == createDto.Category.Id);
+        var category = await _context.Categories.FirstOrDefaultAsync(x => x.Name == createDto.CategoryName);
         if (category == null)
         {
             throw new NotFoundException("Category not found");
@@ -108,8 +112,10 @@ public class EquipmentService
     public async Task<EquipmentDto> UpdateEquipment(Guid id, EquipmentUpdateDto updateDto)
     {
         var equipment = await _context.Equipment
-            .Include(x => x.CurrentLoan)
+            .Include(x => x.CurrentLoan).ThenInclude(x => x!.PreformedBy)
+            .Include(x => x.CurrentLoan).ThenInclude(x => x!.Equipment).ThenInclude(x => x.Category)
             .Include(x => x.Category)
+            .Where(x=>!x.IsDeleted)
             .FirstOrDefaultAsync(x => x.Id == id);
 
         if (equipment == null)
@@ -164,6 +170,11 @@ public class EquipmentService
         if (equipment == null)
         {
             throw new NotFoundException("Equipment not found");
+        }
+
+        if (equipment.IsDeleted)
+        {
+            throw new Exception("Equipment already deleted");
         }
 
         equipment.MarkAsDeleted();
