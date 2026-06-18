@@ -2,7 +2,10 @@
 @if (response) {
   <div class="equipments">
     @for (equipment of response.equipments; track equipment.id) {
-      <div class="equipment-card">
+      <div class="equipment-card"
+           [routerLink]="['/equipment', equipment.id]"
+           [state]="{dtoData: equipment}"
+      >
         <div class="equipment-head">
           <h3>{{ equipment.name }}</h3>
           <div class="status" [ngClass]="{
@@ -14,7 +17,7 @@
           </div>
         </div>
         <div class="equipment-body">
-          <p>{{ equipment.description }}</p>
+          <p class="line-clamper line-clamp-2">{{ equipment.description }}</p>
         </div>
         <div class="equipment-footer">
           <p>Category: {{ equipment.category.name }}</p>
@@ -35,4 +38,84 @@
       </div>
     }
   </div>
+  @if (response.totalPages > 1) {
+    <div class="pagination-wrapper">
+      <div class="pagination">
+        <p tabindex="0">{{ (response.pageNumber - 1) * response.pageSize + 1 }}
+          - {{ Math.min(response.pageNumber * response.pageSize, response.totalItems) }}</p>
+        <p tabindex="0">of</p>
+        <p tabindex="0">{{ response.totalItems }}</p>
+      </div>
+      <div class="pagination-buttons">
+        <button
+          tabindex="0"
+          class="button"
+          (click)="fetchPage(1)"
+          [disabled]="currentPage === 1"
+          (mouseenter)="announce('page 1')"
+          (focus)="announce('page 1')"
+          (mouseleave)="announce('')"
+          (blur)="announce('')"
+          aria-label="Go to first page"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18"
+               fill="#141414">
+            <path
+              d="M440-240 200-480l240-240 56 56-183 184 183 184-56 56Zm264 0L464-480l240-240 56 56-183 184 183 184-56 56Z"/>
+          </svg>
+        </button>
+        <button
+          tabindex="0"
+          class="button"
+          (click)="fetchPage(currentPage - 1)"
+          [disabled]="currentPage === 1"
+          (mouseenter)="announce('page ' + (currentPage - 1))"
+          (focus)="announce('page ' + (currentPage - 1))"
+          (mouseleave)="announce('')"
+          (blur)="announce('')"
+          aria-label="Go to previous page"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18"
+               fill="#141414">
+            <path d="M560-240 320-480l240-240 56 56-184 184 184 184-56 56Z"/>
+          </svg>
+        </button>
+        <button
+          tabindex="0"
+          class="button"
+          (click)="fetchPage(currentPage + 1)"
+          [disabled]="currentPage === response.totalPages"
+          (mouseenter)="announce('page ' + (currentPage + 1))"
+          (focus)="announce('page ' + (currentPage + 1))"
+          (mouseleave)="announce('')"
+          (blur)="announce('')"
+          aria-label="Go to next page"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18"
+               fill="#141414">
+            <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z"/>
+          </svg>
+        </button>
+        <button
+          tabindex="0"
+          class="button"
+          (click)="fetchPage(response.totalPages)"
+          [disabled]="currentPage === response.totalPages"
+          (mouseenter)="announce('page ' + response.totalPages)"
+          (focus)="announce('page ' + response.totalPages)"
+          (mouseleave)="announce('')"
+          (blur)="announce('')"
+          aria-label="Go to last page"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18"
+               fill="#141414">
+            <path
+              d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  }
 }
+
+<div id="ariaStatus" class="sr-only" aria-live="polite" aria-atomic="true">{{ ariaStatus }}</div>
