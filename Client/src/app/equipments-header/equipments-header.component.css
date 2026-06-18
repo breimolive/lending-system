@@ -1,0 +1,103 @@
+.equipments-header {
+  padding-block: var(--geist-space-4x);
+  justify-content: space-between;
+  max-width: 1440px;
+  box-shadow: none;
+  display: flex;
+  width: 100%;
+}
+
+.filter, .sort {
+  padding-inline: var(--geist-space-4x);
+  border-radius: var(--geist-space-4x);
+  font-size: var(--geist-space-4x);
+  color: oklch(0.493 0 89.876);
+  gap: var(--geist-space-2x);
+  letter-spacing: .2px;
+  line-height: 22px;
+  display: flex;
+  border: none;
+}
+
+.filter {
+  padding-right: 0 !important;
+}
+
+.filter-title {
+  color: oklch(0.191 0 89.876);
+  justify-content: center;
+  align-items: end;
+  display: flex;
+  height: 68px;
+}
+
+.filter-options {
+  display: flex;
+  gap: var(--geist-space-4x);
+}
+
+.filter-option {
+  flex-direction: column;
+  display: flex;
+
+  label {
+    padding-bottom: var(--geist-space-3x);
+  }
+}
+
+.filter-option input, .filter-option select {
+  background-color: oklch(0.967 0 89.876);
+  padding-inline: var(--geist-space-4x);
+  border-radius: var(--geist-space-4x);
+  padding-block: var(--geist-space-3x);
+  font-size: var(--geist-space-4x);
+  height: var(--geist-space-12x);
+  color: oklch(0.493 0 89.876);
+  letter-spacing: .2px;
+  line-height: 22px;
+  border: none;
+  width: 210px;
+}
+
+.sort {
+  color: oklch(0.191 0 89.876);
+  gap: var(--geist-space-2x);
+  align-items: end;
+  display: flex;
+  width: calc(250px + 200px)
+}
+
+.sort button, .sort select {
+  background-color: oklch(0.967 0 89.876);
+  padding-inline: var(--geist-space-4x);
+  border-radius: var(--geist-space-4x);
+  padding-block: var(--geist-space-3x);
+  font-size: var(--geist-space-4x);
+  height: var(--geist-space-12x);
+  color: oklch(0.191 0 89.876);
+  gap: var(--geist-space-2x);
+  letter-spacing: .2px;
+  line-height: 22px;
+  display: flex;
+  border: none;
+}
+
+.sort-select {
+  background-color: oklch(0.967 0 89.876);
+  padding-inline: var(--geist-space-4x);
+  border-radius: var(--geist-space-4x);
+  padding-block: var(--geist-space-3x);
+  font-size: var(--geist-space-4x);
+  height: var(--geist-space-12x);
+  color: oklch(0.493 0 89.876);
+  letter-spacing: .2px;
+  line-height: 22px;
+  border: none;
+}
+
+.sort-title {
+  padding-bottom: var(--geist-space-3x);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

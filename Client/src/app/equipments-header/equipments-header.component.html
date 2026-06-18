@@ -1,0 +1,131 @@
+<div class="equipments-header">
+  <div class="filter">
+    <p class="filter-title">Filter by</p>
+    <div class="filter-options">
+      <div class="filter-option">
+        <label for="name">Equipment name</label>
+        <input
+          (input)="Filter('name', TitleInput.value)"
+          #TitleInput
+          id="name"
+          name="name"
+          tabindex="0"
+          type="text"
+          placeholder="Search by name"
+        >
+      </div>
+      <div class="filter-option">
+        <label for="category">Status</label>
+        <select class="text-body" [(ngModel)]="selectedStatus" (ngModelChange)="Filter('status', $event)" name="category">
+          <option value="" disabled selected>Filter by status</option>
+          <option value="None">None</option>
+            <option value="available" class="text-body">Available</option>
+            <option value="borrowed" class="text-body">Borrowed</option>
+            <option value="maintained" class="text-body">Maintained</option>
+        </select>
+      </div>
+      <div class="filter-option">
+        <label for="borrower">Borrower</label>
+        <input
+          (input)="Filter('borrower', BorrowerInput.value)"
+          #BorrowerInput
+          id="borrower"
+          type="text"
+          placeholder="Search by Borrower"
+        >
+      </div>
+      <div class="filter-option">
+        <label>Category</label>
+        <select class="text-body" [(ngModel)]="selectedCategory" (ngModelChange)="Filter('category', $event)" name="category">
+          <option value="" disabled selected>Filter by category</option>
+          <option value="None">None</option>
+          @for (category of Categories; track category.id) {
+            <option [value]="category.name" class="text-body">
+              {{ category.name }}
+            </option>
+          }
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="sort">
+    <p class="sort-title">Sort by</p>
+    <select #inventoryInput (change)="onSortSelect(inventoryInput.value)" [value]="sortedBy || ''">
+      <option value="">None</option>
+      <option value="Name">Equipment name</option>
+      <option value="Category">Category</option>
+      <option value="Status">Status</option>
+    </select>
+    @if (sortedBy == 'Name') {
+      <button
+        (click)="sortBy('Name')"
+        (mouseenter)="announce('Sort by Equipment name')"
+        (focus)="announce('Sort by DueDate')"
+        (mouseleave)="announce('')"
+        (blur)="announce('')"
+        [attr.aria-pressed]="sortLabel === 'DueDate' ? 'true' : 'false'"
+        aria-label="Sort by DueDate"
+        title="Sort by DueDate"
+      >
+        Equipment name
+        <span>
+        @if (sortLabel === 'Name' && !nameSortAsc) {
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="#141414"><path
+            d="M480-384 288-576h384L480-384Z"/></svg>
+        } @else {
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="#141414"><path
+            d="m288-384 192-192 192 192H288Z"/></svg>
+        }
+      </span>
+      </button>
+    }
+    @if (sortedBy == this.sortByOptions[1]) {
+      <button
+        (click)="sortBy('Category')"
+        (mouseenter)="announce('Sort by Category')"
+        (focus)="announce('Sort by Category')"
+        (mouseleave)="announce('')"
+        (blur)="announce('')"
+        [attr.aria-pressed]="sortLabel === 'Category' ? 'true' : 'false'"
+        aria-label="Sort by Category"
+        title="Sort by Category"
+      >
+        Category
+        <span>
+        @if (sortLabel === 'Category' && !categorySortAsc) {
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="#141414"><path
+            d="M480-384 288-576h384L480-384Z"/></svg>
+        } @else {
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="#141414"><path
+            d="m288-384 192-192 192 192H288Z"/></svg>
+        }
+      </span>
+      </button>
+    }
+    @if (sortedBy == this.sortByOptions[2]) {
+      <button
+        (click)="sortBy('Status')"
+        (mouseenter)="announce('Sort by Status')"
+        (focus)="announce('Sort by Status')"
+        (mouseleave)="announce('')"
+        (blur)="announce('')"
+        [attr.aria-pressed]="sortLabel === 'Status' ? 'true' : 'false'"
+        aria-label="Sort by Status"
+        title="Sort by Status"
+      >
+        Status
+        <span>
+        @if (sortLabel === 'Status' && !statusSortAsc) {
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="#141414"><path
+            d="M480-384 288-576h384L480-384Z"/></svg>
+        } @else {
+          <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20" fill="#141414"><path
+            d="m288-384 192-192 192 192H288Z"/></svg>
+        }
+      </span>
+      </button>
+    }
+  </div>
+</div>
+
+<div id="ariaStatus" class="sr-only" aria-live="polite" aria-atomic="true">{{ ariaStatus }}</div>
