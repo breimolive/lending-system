@@ -1,0 +1,143 @@
+.equipment-detail {
+  padding-inline: var(--geist-space-4x);
+  padding-block: var(--geist-space-4x);
+  gap: var(--geist-space-4x);
+  width: 1440px;
+  display: grid;
+}
+
+.equipment-head {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.equipment-header {
+  display: flex;
+  gap: var(--geist-space-3x);
+}
+
+.equipment-head-actions {
+  gap: var(--geist-space-3x);
+  display: flex;
+}
+
+.equipment-head-actions button {
+  padding-inline: var(--geist-space-3x);
+  border-radius: var(--rounded-full);
+  height: var(--geist-space-9x);
+  letter-spacing: .2px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.equipment-head-actions button:hover {
+  background-color: oklch(0.916 0 89.876);
+}
+
+.equipment-head-actions button.delete-button {
+  background-color: oklch(0.191 0 89.876);
+  font-weight: 600;
+}
+
+.equipment-head-actions button.delete-button:hover {
+  background-color: oklch(0.191 0 89.876 / 0.9);
+}
+
+.equipment-head-actions button.create-button {
+  font-weight: 520;
+}
+
+.equipment-head-actions button.create-button:hover {
+  background-color: oklch(0.539 0.206 278.841);
+}
+
+.status {
+  border-radius: var(--geist-space-3x);
+  padding-block: var(--geist-space-2x);
+  padding-inline: var(--geist-space-3x);
+  max-width: max-content;
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  background: #fff;
+  color: #333;
+}
+
+.table thead {
+  background: #f5f5f5;
+}
+
+.table caption {
+  text-align: start;
+}
+
+.table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid #ddd;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.table tbody tr:hover {
+  background: #fafafa;
+  transition: background 0.2s ease;
+}
+
+.table-striped tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #ddd;
+}
+
+.table-compact th,
+.table-compact td {
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+@media (max-width: 768px) {
+  .table th,
+  .table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+}
+
+.table-rounded {
+  overflow: hidden;
+}
+
+.table-shadow {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+caption {
+  text-align: start;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  margin: 0;
+}
