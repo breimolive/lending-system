@@ -20,8 +20,8 @@ public class EquipmentController: ControllerBase
     [Authorize]
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-    [ProducesResponseType(typeof(List<EquipmentDto>), StatusCodes.Status200OK)]
-    public async Task<List<EquipmentDto>> GetEquipment([FromQuery] EquipmentQueryDto query)
+    [ProducesResponseType(typeof(EquipmentQueriedDto), StatusCodes.Status200OK)]
+    public async Task<EquipmentQueriedDto> GetEquipment([FromQuery] EquipmentQueryDto query)
     {
         var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (userId == null)
@@ -109,5 +109,19 @@ public class EquipmentController: ControllerBase
             throw new UnauthorizedAccessException("User ID claim not found");
         }
         return await _equipmentService.CreateCategory(name);
+    }
+    
+    [Authorize]
+    [HttpGet("categories")]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(typeof(List<CategoryDto>), StatusCodes.Status200OK)]
+    public async Task<List<CategoryDto>> GetCategories()
+    {
+        var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (userId == null)
+        {
+            throw new UnauthorizedAccessException("User ID claim not found");
+        }
+        return await _equipmentService.GetCategories();
     }
 }

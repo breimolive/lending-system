@@ -62,6 +62,15 @@ public class UserController : ControllerBase
         return user;
     }
     
+    [HttpPost("create/borrower")]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(BorrowerDto), StatusCodes.Status200OK)]
+    public async Task<BorrowerDto> CreateBorrower(BorrowerCreateDto request)
+    {
+        return await _userService.CreateBorrower(request);
+    }
+    
     [HttpPost("logout")]
     public async Task<IActionResult> Logout()
     {
