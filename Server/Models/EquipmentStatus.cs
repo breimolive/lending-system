@@ -3,6 +3,6 @@
 public enum EquipmentStatus
 {
     Available,
-    InUse,
-    Maintenance,
+    Borrowed,
+    Maintained
 }
