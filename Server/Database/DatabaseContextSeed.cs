@@ -36,7 +36,6 @@ public class DatabaseContextSeed
         await SeedCategory();
         await SeedEquipment();
         await SeedBorrower();
-        await SeedLoan();
     }
 
     private async Task SeedUser()
@@ -95,30 +94,6 @@ public class DatabaseContextSeed
         _logger.LogInformation("Seeding Borrower");
         
         _context.Borrowers.Add(BorrowerEntitySeed.Seed());
-        await _context.SaveChangesAsync();
-    }
-    
-    private async Task SeedLoan()
-    {
-        if (_context.Loans.Any())
-        {
-            return;
-        }
-
-        _logger.LogInformation("Seeding Loan");
-        
-        var borrower = await _context.Borrowers.FirstOrDefaultAsync();
-        var equipment = await _context.Equipment.FirstOrDefaultAsync();
-        var user = await _context.Users.FirstOrDefaultAsync();
-        if (borrower == null || equipment == null || user == null)
-        {
-            await SeedUser();
-            await SeedBorrower();
-            await SeedEquipment();
-            return;
-        }
-
-        _context.Loans.AddRange(LoanEntitySeed.Seeds(borrower, equipment, user));
         await _context.SaveChangesAsync();
     }
 

@@ -198,7 +198,6 @@ input, button {
     font-weight: 600;
   }
   */
-
   a {
     text-decoration: inherit;
     color: inherit;
@@ -434,6 +433,21 @@ input, button {
     background-color: oklch(0.691 0.006 286.247);
   }
 
+  .available {
+    background-color: oklch(0.979 0.021 166.113);
+    color: oklch(0.627 0.17 149.214);
+  }
+
+  .borrowed, .borrower-icon {
+    background-color: oklch(0.961 0.016 266.279);
+    color: oklch(0.559 0.166 267.659);
+  }
+
+  .maintained {
+    background-color: oklch(0.971 0.013 17.38);
+    color: oklch(0.577 0.215 27.325);
+  }
+
   .content-container {
     padding-block: var(--geist-space-3x);
     flex-direction: column;
@@ -447,11 +461,22 @@ input, button {
     gap: var(--geist-space-2x);
     justify-content: end;
     display: flex;
-    width: 80px;
   }
 
   .button:hover:not(button:disabled:hover) {
     background-color: oklch(0.943 0 89.876);
+  }
+
+  .button {
+    cursor: pointer;
+  }
+
+  .button:disabled {
+    cursor: default;
+  }
+
+  button:disabled > svg {
+    fill: oklch(0.798 0 89.876);
   }
 
   .pagination-buttons {

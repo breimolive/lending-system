@@ -178,8 +178,8 @@ export class ApiService {
     return this.http.delete<void>(`/api/v1/equipment/delete/${equipmentId}`);
   }
 
-  getLoans(loanId: string): Observable<loanDto[]> {
-    return this.http.get<loanDto[]>(`/api/v1/loans/equipment/${loanId}/loans`);
+  getLoans(equipmentId: string): Observable<loanDto[]> {
+    return this.http.get<loanDto[]>(`/api/v1/loans/equipment/${equipmentId}/loans`);
   }
 
   createLoan(loan: loanCreateDto): Observable<loanDto> {

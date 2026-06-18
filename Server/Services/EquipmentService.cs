@@ -86,10 +86,10 @@ public class EquipmentService
         }
 
         var pageNumber = queryDto.PageNumber ?? 1;
-        var pageSize = queryDto.PageSize ?? 10;
+        var pageSize = queryDto.PageSize ?? 9;
 
         if (pageNumber < 1) pageNumber = 1;
-        if (pageSize < 1) pageSize = 10;
+        if (pageSize < 1) pageSize = 9;
 
         var itemEntities = query
             .Skip((pageNumber - 1) * pageSize)
