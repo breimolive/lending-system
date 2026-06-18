@@ -1,0 +1,99 @@
+button {
+  height: 44px;
+  cursor: pointer;
+  border-radius: 9999px;
+  padding-inline: 16px;
+  letter-spacing: .2px;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  position: relative;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--geist-space-4x);
+}
+
+.input-wrapper {
+  border-bottom: 1px solid #c6c6c6;
+  padding-bottom: 1rem;
+  flex-direction: column;
+  min-width: 305px;
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+}
+
+input {
+  background-color: oklch(0.952 0 89.876);
+  padding-inline: var(--geist-space-4x);
+  border-radius: var(--geist-space-4x);
+  padding-block: var(--geist-gap-half);
+  line-height: var(--geist-space-6x);
+  height: var(--geist-space-large);
+  font-size: var(--geist-space-4x);
+  letter-spacing: .009em;
+  border: none;
+  width: 100%;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+#toggleBtn {
+  position-anchor: --password-field-anchor;
+  transform: translateY(-50%);
+  justify-content: center;
+  align-items: center;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  border: none;
+  height: 24px;
+  width: 24px;
+  padding: 0;
+
+  right: calc(anchor(right) + 10px);
+  top: anchor(center);
+  position: absolute;
+  bottom: auto;
+  left: auto;
+}
+
+#toggleBtn svg {
+  --transition-object: opacity;
+  --transition-timing: 0.2s;
+  --transition-type: ease;
+
+  transition: var(--transition-object) var(--transition-timing) var(--transition-type);
+
+  opacity: 0.6;
+  height: var(--geist-space-5x);
+  width: var(--geist-space-5x);
+}
+
+#toggleBtn:hover img {
+  opacity: 1;
+}
+
+.password-field {
+  anchor-name: --password-field-anchor;
+}
+
+#reg-email-required-error,
+#reg-email-pattern-error,
+#reg-password-required-error {
+  color: oklch(0.564 0.209 27.203);
+  position: relative;
+  bottom: 3px;
+  left: 3px;
+}

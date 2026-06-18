@@ -1,18 +1,114 @@
-<p>login works!</p>
-
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <div>
-    <label for="name">
-      E-mail
-    </label>
-    <input id="name" type="text" formControlName="email">
-  </div>
-  <div>
-    <label for="address">
-      Password
-    </label>
-    <input id="address" type="password" formControlName="password">
-  </div>
-  <button class="button" type="submit">Login</button>
-  <a routerLink="/register">Register</a>
-</form>
+<div class="content-container">
+  <form [formGroup]="loginForm" (submit)="onSubmit()">
+    <div class="input-wrapper">
+      <label for="email">
+        E-mail<span>*</span>
+      </label>
+      <input
+        id="email"
+        type="email"
+        placeholder="Enter email adress"
+        name="email"
+        autocomplete="email"
+        aria-label="email"
+        formControlName="email"
+        required
+        [attr.aria-invalid]="(loginForm.get('email')?.invalid && (loginForm.get('email')?.touched
+          || wasIncorrect)) ? 'true' : (ValidForm ? 'false' : null)"
+        [attr.aria-describedby]="(loginForm.get('email')?.hasError('required') && (loginForm.get('email')?.touched
+          || wasIncorrect)) ? 'reg-email-required-error' : (loginForm.get('email')?.errors?.['pattern'] ? 'reg-email-pattern-error' : null)"
+      >
+      @if (loginForm.get('email')?.errors?.['required'] &&
+      loginForm.get('email')?.touched || loginForm.get('email')?.hasError('required') &&
+      (loginForm.get('email')?.touched || wasIncorrect)) {
+        <div role="alert" aria-live="assertive" class="input-invalid">
+          <p class="text-body" id="reg-email-required-error">Email is required.</p>
+        </div>
+      }
+      @if (loginForm.get('email')?.errors?.['pattern'] && (loginForm.get('email')?.touched)) {
+        <div role="alert" aria-live="assertive" class="input-invalid">
+          <p class="text-body" id="reg-email-pattern-error">Invalid email. Example: <span class="text-span-example">test&#64;example.com</span>
+          </p>
+        </div>
+      }
+    </div>
+    <div class="input-wrapper">
+      <label for="password">
+        Password<span>*</span>
+      </label>
+      <div class="password-wrapper">
+        <input
+          class="password-field"
+          id="password"
+          [type]="PasswordVisible ? 'text' : 'password'"
+          formControlName="password"
+          placeholder="Enter password"
+          aria-label="password"
+          autocomplete="current-password"
+          required
+          [attr.aria-invalid]="(loginForm.get('password')?.invalid && (loginForm.get('password')?.touched
+            || wasIncorrect)) ? 'true' : (ValidForm ? 'false' : null)"
+          [attr.aria-describedby]="(loginForm.get('password')?.hasError('required') && (loginForm.get('password')?.touched || wasIncorrect)) ? 'reg-password-required-error' : null"
+        >
+        <button
+          type="button"
+          id="toggleBtn"
+          aria-label="Toggle password visibility"
+          (click)="togglePasswordVisibility()"
+        >
+          @if (PasswordVisible) {
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20" height="20" viewBox="0 0 24 24" fill="none"
+              aria-label="Opened eye icon"
+              focusable="false"
+              stroke="#727272"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-eye"
+              id="#toggleBtn">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          } @else {
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20" height="20" viewBox="0 0 24 24" fill="none"
+              aria-label="Closed eye icon"
+              focusable="false"
+              stroke="#727272"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-eye-off"
+              id="#toggleBtn"
+            >
+              <path
+                d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+              <line x1="1" y1="1" x2="23" y2="23"></line>
+            </svg>
+          }
+        </button>
+      </div>
+      @if (loginForm.get('password')?.errors?.['required'] &&
+      loginForm.get('password')?.touched || loginForm.get('password')?.hasError('required') &&
+      (loginForm.get('password')?.touched || wasIncorrect)) {
+        <div role="alert" aria-live="assertive" class="input-invalid">
+          <p class="text-body" id="reg-password-required-error">Password is required.</p>
+        </div>
+      }
+    </div>
+    <label for="website" class="sr-only" aria-hidden="true">Leave this field empty</label>
+    <input
+      id="website"
+      type="text"
+      formControlName="website"
+      class="honeypot"
+      tabindex="-1"
+      autocomplete="off"
+      aria-hidden="true"
+    />
+    <button class="login-button" type="submit">Login</button>
+  </form>
+</div>
