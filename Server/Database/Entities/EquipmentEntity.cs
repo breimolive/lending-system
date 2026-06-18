@@ -115,7 +115,12 @@ public class EquipmentEntity
         UpdatedAt = DateTime.UtcNow;
     }
 
-    public EquipmentDto ToDto()
+    /* AI used (Microsoft Copilot)
+   Reason: I was struggling with a overflow stock issue when mapping equipment to DTO, because the Equipment entity has a reference to the current loan,
+   which in turn has a reference to the equipment. This caused an infinite loop when mapping to DTO. By adding an optional parameter to the ToDto method,
+   I can control whether to include the equipment details in the loan DTO, thus breaking the loop when necessary.
+    */
+    public EquipmentDto ToDto(bool includeCurrentLoan = true)
     {
         if (Category is null)
             throw new InvalidOperationException(
@@ -131,7 +136,7 @@ public class EquipmentEntity
             IsDeleted = IsDeleted,
             CreatedAt = CreatedAt,
             UpdatedAt = UpdatedAt,
-            CurrentLoan = CurrentLoan?.ToDto(),
+            CurrentLoan = includeCurrentLoan ? CurrentLoan?.ToDto(includeEquipment: false) : null,
             Category = Category.ToDto()
         };
     }

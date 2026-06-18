@@ -53,27 +53,34 @@ public class LoanEntity
         UpdatedAt = DateTime.UtcNow;
     }
 
-    public LoanDto ToDto()
+    /* AI used (Microsoft Copilot)
+    Reason: I was struggling with a overflow stock issue when mapping equipment to DTO, because the Equipment entity has a reference to the current loan,
+    which in turn has a reference to the equipment. This caused an infinite loop when mapping to DTO. By adding an optional parameter to the ToDto method, 
+    I can control whether to include the equipment details in the loan DTO, thus breaking the loop when necessary.
+     */
+    public LoanDto ToDto(bool includeEquipment = false)
     {
-        if (Equipment is null)
-            throw new InvalidOperationException(
-                $"Loan {Id} has null Equipment. Ensure `Equipment` is included when querying the database before mapping to DTO (use Include(l => l.Equipment)).");
-
-        if (PreformedBy is null)
-            throw new InvalidOperationException(
-                $"Loan {Id} has null PreformedBy. Ensure `PreformedBy` is included when querying the database before mapping to DTO (use Include(l => l.PreformedBy)).");
-
-        return new LoanDto
         {
-            Id = Id,
-            PreformedById = PreformedById,
-            PreformedBy = PreformedBy.ToDto(),
-            EquipmentId = EquipmentId,
-            Equipment = Equipment.ToDto(),
-            LoanDate = LoanDate,
-            DueDate = DueDate,
-            ReturnDate = ReturnDate,
-            Status = Status
-        };
+            if (Equipment is null)
+                throw new InvalidOperationException(
+                    $"Loan {Id} has null Equipment. Ensure `Equipment` is included when querying the database before mapping to DTO (use Include(l => l.Equipment)).");
+
+            if (PreformedBy is null)
+                throw new InvalidOperationException(
+                    $"Loan {Id} has null PreformedBy. Ensure `PreformedBy` is included when querying the database before mapping to DTO (use Include(l => l.PreformedBy)).");
+
+            return new LoanDto
+            {
+                Id = Id,
+                PreformedById = PreformedById,
+                PreformedBy = PreformedBy.ToDto(),
+                EquipmentId = EquipmentId,
+                Equipment = (includeEquipment ? Equipment.ToDto(includeCurrentLoan: false) : null)!,
+                LoanDate = LoanDate,
+                DueDate = DueDate,
+                ReturnDate = ReturnDate,
+                Status = Status
+            };
+        }
     }
 }
