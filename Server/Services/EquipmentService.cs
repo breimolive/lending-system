@@ -15,23 +15,32 @@ public class EquipmentService
         _context = context;
     }
 
-    public async Task<List<EquipmentDto>> GetEquipments(EquipmentQueryDto? queryDto)
+    public async Task<EquipmentQueriedDto> GetEquipments(EquipmentQueryDto? queryDto)
     {
         var query = _context.Equipment
+            .Include(x=>x.CurrentLoan).ThenInclude(x=>x!.Borrower)
             .Include(x => x.CurrentLoan).ThenInclude(x => x!.PreformedBy)
             .Include(x => x.CurrentLoan).ThenInclude(x => x!.Equipment).ThenInclude(x => x.Category)
             .Include(x => x.Category)
-            .Where(x=>!x.IsDeleted)
+            .Where(x => !x.IsDeleted)
             .AsQueryable();
 
         if (queryDto == null)
         {
-            return [];
+            return new EquipmentQueriedDto();
         }
 
         if (!string.IsNullOrEmpty(queryDto.Name))
         {
             query = query.Where(x => x.Name.Contains(queryDto.Name));
+        }
+
+        if (!string.IsNullOrEmpty(queryDto.Borrower))
+        {
+            var normalized = queryDto.Borrower.Trim().ToLowerInvariant();
+            query = query.Where(x => x.CurrentLoan != null && x.CurrentLoan.Borrower.FirstName.ToLower().Contains(normalized)
+                                     || x.CurrentLoan != null && x.CurrentLoan.Borrower.LastName.ToLower().Contains(normalized))
+                .Where(x=>x.CurrentLoan != null && x.CurrentLoan.Status == LoanStatus.OnLoan);
         }
 
         if (!string.IsNullOrEmpty(queryDto.Category))
@@ -76,9 +85,28 @@ public class EquipmentService
             };
         }
 
-        return await query
-            .Select(x => x.ToDto())
-            .ToListAsync();
+        var pageNumber = queryDto.PageNumber ?? 1;
+        var pageSize = queryDto.PageSize ?? 10;
+
+        if (pageNumber < 1) pageNumber = 1;
+        if (pageSize < 1) pageSize = 10;
+
+        var itemEntities = query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToList();
+
+        var totalItems = await query.CountAsync();
+        var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
+
+        return new EquipmentQueriedDto
+        {
+            Equipments = itemEntities.Select(i => i.ToDto()).ToList(),
+            PageNumber = pageNumber,
+            PageSize = pageSize,
+            TotalItems = totalItems,
+            TotalPages = totalPages
+        };
     }
 
     public async Task<EquipmentDto> GetEquipment(Guid id)
@@ -87,7 +115,7 @@ public class EquipmentService
             .Include(x => x.CurrentLoan).ThenInclude(x => x!.PreformedBy)
             .Include(x => x.CurrentLoan).ThenInclude(x => x!.Equipment).ThenInclude(x => x.Category)
             .Include(x => x.Category)
-            .Where(x=>!x.IsDeleted)
+            .Where(x => !x.IsDeleted)
             .FirstOrDefaultAsync(x => x.Id == id);
 
         return equipment == null ? throw new NotFoundException("Equipment not found") : equipment.ToDto();
@@ -115,7 +143,7 @@ public class EquipmentService
             .Include(x => x.CurrentLoan).ThenInclude(x => x!.PreformedBy)
             .Include(x => x.CurrentLoan).ThenInclude(x => x!.Equipment).ThenInclude(x => x.Category)
             .Include(x => x.Category)
-            .Where(x=>!x.IsDeleted)
+            .Where(x => !x.IsDeleted)
             .FirstOrDefaultAsync(x => x.Id == id);
 
         if (equipment == null)
@@ -193,5 +221,11 @@ public class EquipmentService
         _context.Categories.Add(category);
         await _context.SaveChangesAsync();
         return category.ToDto();
+    }
+    
+    public async Task<List<CategoryDto>> GetCategories()
+    {
+        var categories = await _context.Categories.ToListAsync();
+        return categories.Select(c => c.ToDto()).ToList();
     }
 }

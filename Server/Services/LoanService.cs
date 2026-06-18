@@ -48,7 +48,8 @@ public class LoanService
     public async Task<LoanDto> CreateLoan(LoanCreateDto request)
     {
         var equipment = await _context.Equipment
-            .Include(e => e.Category)
+            .Include(x=>x.CurrentLoan)
+            .Include(x => x.Category)
             .FirstOrDefaultAsync(x => x.Id == request.EquipmentId);
 
         var borrower = await _context.Borrowers
@@ -71,13 +72,15 @@ public class LoanService
         {
             throw new NotFoundException("User not found");
         }
-
+ 
         var loan = new LoanEntity(request.LoanDate, request.DueDate, request.Status, equipment, borrower, preformedBy);
-        equipment.UpdateStatus(EquipmentStatus.InUse);
+        equipment.UpdateStatus(EquipmentStatus.Borrowed);
         _context.Loans.Add(loan);
         await _context.SaveChangesAsync();
 
-        return loan.ToDto();
+        equipment.UpdateCurrentLoan(loan);
+        await _context.SaveChangesAsync();
+        return loan.ToDto(includeEquipment: true);
     }
 
     public async Task ReturnLoan(Guid userId, Guid loanId)
@@ -104,6 +107,13 @@ public class LoanService
         {
             throw new Exception("Loan already returned");
         }
+        
+        if (loan.Equipment.Status != EquipmentStatus.Borrowed)
+        {
+            throw new Exception("Equipment is not borrowed");
+        }
+        
+        loan.Equipment.UpdateStatus(EquipmentStatus.Available);
 
         if (loan.Status != LoanStatus.Returned)
         {
