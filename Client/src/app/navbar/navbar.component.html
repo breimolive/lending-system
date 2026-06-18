@@ -1,0 +1,29 @@
+<header>
+  <nav aria-label="Main Navigation" class="navbar">
+    <div>
+      <a
+        [routerLink]="['']"
+        class="nav-brand text-body-bold"
+        aria-label="Lending System, Go to homepage"
+      >Lending System</a>
+      @if (user) {
+        <div class="user-icon">
+          <button id="userIconPopoverButton" popovertarget="userIconPopover"
+                  class="text-body-bold">{{ user.fullName[0].toUpperCase() }}
+          </button>
+        </div>
+      }
+    </div>
+  </nav>
+</header>
+
+@if (user) {
+  <div class="user-icon-popover" id="userIconPopover" popover>
+    <div class="popover-content">
+      <p class="popover-text text-body">{{ user.fullName }}</p>
+      <button class="popover-button text-body-bold" (click)="onLogout()">
+        <p class="text-body-bold">Logout</p>
+      </button>
+    </div>
+  </div>
+}

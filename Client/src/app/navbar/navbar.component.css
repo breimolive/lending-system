@@ -1,0 +1,98 @@
+:host {
+  --navbar-text-color-hovered: 0 0% 30%;
+  --navbar-text-color: 0 0% 0%;
+}
+
+header {
+  width: 1440px;
+}
+
+.navbar {
+  background-color: oklch(0.979 0.002 247.839);
+  padding-inline: var(--geist-space-4x);
+  padding-block: var(--geist-space-3x);
+  max-width: 1440px;
+  box-shadow: none;
+  width: 100%;
+}
+
+.navbar div {
+  justify-content: space-between;
+  gap: var(--geist-space-4x);
+  display: flex;
+}
+
+a {
+  font-size: var(--geist-space-8x);
+  color: oklch(0.191 0 89.876);
+  line-height: 2.25rem;
+  text-wrap: balance;
+  text-align: center;
+  letter-spacing: 0;
+  font-weight: 652;
+}
+
+.user-icon {
+  position: relative;
+  justify-content: end;
+  align-items: center;
+  display: flex;
+  height: 36px;
+  width: 36px;
+}
+
+.user-icon button {
+  border-radius: var(--rounded-full);
+  background-color: oklch(0.867 0 89.876);
+  anchor-name: --user-icon-anchor;
+  color: oklch(0 0 0);
+  object-fit: cover;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  height: 100%;
+  width: 100%;
+}
+
+.user-icon-popover {
+  border-radius: var(--geist-space-4x);
+  position-anchor: --user-icon-anchor;
+  top: calc(anchor(bottom) + 10px);
+  border: 1px solid oklch(0 0 0 / 0.2);
+  right: anchor(right);
+  bottom: auto;
+  padding: 0;
+  left: auto;
+  margin: 0;
+
+}
+
+.popover-content {
+  gap: var(--geist-space-2x);
+  flex-direction: column;
+  display: flex;
+}
+
+.popover-text {
+  padding-inline: var(--geist-space-3x);
+  padding-top: var(--geist-space-3x);
+  white-space: nowrap;
+  color: black;
+  margin: 0;
+}
+
+.popover-button {
+  padding-inline: var(--geist-space-3x);
+  padding-block: var(--geist-space-3x);
+  justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: black;
+  border: none;
+  width: 100%;
+}
+
+.popover-button:hover {
+  background-color: oklch(0.88 0 0);
+}
