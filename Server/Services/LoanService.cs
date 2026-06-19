@@ -19,8 +19,8 @@ public class LoanService
     {
         var loans = await _context.Loans
             .Include(x => x.PreformedBy)
-            .Include(x => x.Equipment)
-            .ThenInclude(e => e.Category)
+            .Include(x => x.Equipment).ThenInclude(e => e.Category)
+            .Include(x=>x.Borrower)
             .Where(x => x.EquipmentId == equipmentId)
             .ToListAsync();
 
@@ -39,6 +39,7 @@ public class LoanService
         var loan = await _context.Loans
             .Include(x => x.PreformedBy)
             .Include(x => x.Equipment).ThenInclude(x => x.Category)
+            .Include(x=>x.Borrower)
             .Where(x => !x.Equipment.IsDeleted)
             .FirstOrDefaultAsync(x => x.Id == loanId);
 
@@ -48,7 +49,7 @@ public class LoanService
     public async Task<LoanDto> CreateLoan(LoanCreateDto request)
     {
         var equipment = await _context.Equipment
-            .Include(x=>x.CurrentLoan)
+            .Include(x=>x.CurrentLoan).ThenInclude(x=>x!.Borrower)
             .Include(x => x.Category)
             .FirstOrDefaultAsync(x => x.Id == request.EquipmentId);
 
@@ -72,8 +73,11 @@ public class LoanService
         {
             throw new NotFoundException("User not found");
         }
+        
+        var doubleDueDate = double.Parse(request.DueDate);
+        var dueDate = DateTime.UtcNow.AddDays(doubleDueDate);
  
-        var loan = new LoanEntity(request.LoanDate, request.DueDate, request.Status, equipment, borrower, preformedBy);
+        var loan = new LoanEntity(DateTime.UtcNow, dueDate, equipment, borrower, preformedBy);
         equipment.UpdateStatus(EquipmentStatus.Borrowed);
         _context.Loans.Add(loan);
         await _context.SaveChangesAsync();

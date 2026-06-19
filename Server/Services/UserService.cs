@@ -44,6 +44,12 @@ public class UserService
 
         return borrower.ToDto();
     }
+
+    public async Task<BorrowerDto> GetBorrower(string email)
+    {
+        var existingBorrower = await _context.Borrowers.FirstOrDefaultAsync(x => x.Email == email);
+        return existingBorrower == null ? throw new NotFoundException("Borrower not found") : existingBorrower.ToDto();
+    }
     
     public async Task<UserDto> GetUser(string userId)
     {

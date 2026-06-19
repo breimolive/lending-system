@@ -114,6 +114,7 @@ public class EquipmentService
         var equipment = await _context.Equipment
             .Include(x => x.CurrentLoan).ThenInclude(x => x!.PreformedBy)
             .Include(x => x.CurrentLoan).ThenInclude(x => x!.Equipment).ThenInclude(x => x.Category)
+            .Include(x=>x.CurrentLoan).ThenInclude(x=>x!.Borrower)
             .Include(x => x.Category)
             .Where(x => !x.IsDeleted)
             .FirstOrDefaultAsync(x => x.Id == id);
@@ -129,8 +130,7 @@ public class EquipmentService
             throw new NotFoundException("Category not found");
         }
 
-        var equipment = new EquipmentEntity(createDto.Name, createDto.Description, createDto.SerialNumber,
-            createDto.Status, category);
+        var equipment = new EquipmentEntity(createDto.Name, createDto.Description, createDto.SerialNumber, category);
         _context.Equipment.Add(equipment);
         await _context.SaveChangesAsync();
 
@@ -144,7 +144,20 @@ public class EquipmentService
             .Include(x => x.CurrentLoan).ThenInclude(x => x!.Equipment).ThenInclude(x => x.Category)
             .Include(x => x.Category)
             .Where(x => !x.IsDeleted)
+            .AsQueryable()
             .FirstOrDefaultAsync(x => x.Id == id);
+        
+        var currentLoan = equipment?.CurrentLoan;
+        if (currentLoan == null)
+        {
+            equipment = await _context.Equipment
+                .Include(x => x.CurrentLoan).ThenInclude(x => x!.PreformedBy)
+                .Include(x => x.CurrentLoan).ThenInclude(x => x!.Equipment).ThenInclude(x => x.Category)
+                .Include(x=>x.CurrentLoan).ThenInclude(x=>x!.Borrower)
+                .Include(x => x.Category)
+                .Where(x => !x.IsDeleted)
+                .FirstOrDefaultAsync(x => x.Id == id);
+        }
 
         if (equipment == null)
         {
