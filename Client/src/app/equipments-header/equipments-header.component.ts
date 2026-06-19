@@ -58,7 +58,6 @@ export class EquipmentsHeaderComponent implements OnInit {
           ...this.request,
           borrower: value
         };
-
         this.requestSender.emit(this.request);
       });
   }
@@ -102,7 +101,6 @@ export class EquipmentsHeaderComponent implements OnInit {
         this.requestSender.emit(this.request);
         break;
       case 'category':
-        console.log('Selected category:', trimmedValue);
         if (trimmedValue === 'None') {
           const {category, ...rest} = this.request;
           this.request = rest;
@@ -112,7 +110,6 @@ export class EquipmentsHeaderComponent implements OnInit {
             category: trimmedValue
           };
         }
-        console.log('Updated request:', this.request);
         this.requestSender.emit(this.request);
         break;
       case 'name':

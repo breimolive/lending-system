@@ -37,10 +37,32 @@ public class EquipmentService
 
         if (!string.IsNullOrEmpty(queryDto.Borrower))
         {
+            // Normalize the input to handle case and extra spaces
             var normalized = queryDto.Borrower.Trim().ToLowerInvariant();
-            query = query.Where(x => x.CurrentLoan != null && x.CurrentLoan.Borrower.FirstName.ToLower().Contains(normalized)
-                                     || x.CurrentLoan != null && x.CurrentLoan.Borrower.LastName.ToLower().Contains(normalized))
-                .Where(x=>x.CurrentLoan != null && x.CurrentLoan.Status == LoanStatus.OnLoan);
+            if (normalized.Contains(" "))
+            {
+                var parts = normalized.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                // If there are exactly two parts, we can assume they might be first name and last name
+                if (parts.Length == 2)
+                {
+                    var firstNamePart = parts[0];
+                    var lastNamePart = parts[1];
+                    query = query.Where(x => x.CurrentLoan != null && 
+                                             ((x.CurrentLoan.Borrower.FirstName.ToLower().Contains(firstNamePart) && 
+                                               x.CurrentLoan.Borrower.LastName.ToLower().Contains(lastNamePart)) ||
+                                              (x.CurrentLoan.Borrower.FirstName.ToLower().Contains(lastNamePart) && 
+                                               x.CurrentLoan.Borrower.LastName.ToLower().Contains(firstNamePart))))
+                        .Where(x=>x.CurrentLoan != null && x.CurrentLoan.Status == LoanStatus.OnLoan);
+                }
+            }
+            else
+            {
+                // If there are no spaces, we can check if either the first name or last name contains the input
+                query = query.Where(x => x.CurrentLoan != null && 
+                                         (x.CurrentLoan.Borrower.FirstName.ToLower().Contains(normalized) || 
+                                          x.CurrentLoan.Borrower.LastName.ToLower().Contains(normalized)))
+                    .Where(x=>x.CurrentLoan != null && x.CurrentLoan.Status == LoanStatus.OnLoan);
+            }
         }
 
         if (!string.IsNullOrEmpty(queryDto.Category))
