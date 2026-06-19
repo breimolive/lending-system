@@ -1,0 +1,25 @@
+@if (isOpen && equipment) {
+  <div class="dialog-overlay">
+    <dialog
+      class="dialog"
+      #dialog
+      (keydown.esc)="closeDialog()"
+      (click)="onDialogClick($event)"
+    >
+      <div class="dialog-header">
+        <h2 class="dialog-title">Return Equipment</h2>
+      </div>
+      @if (this.equipment) {
+      <div class="dialog-body">
+        <p>Would you like to return {{this.equipment.name}}?</p>
+      </div>
+      }
+      <div class="dialog-footer">
+        <button (click)="closeDialog()" class="closeBtn" aria-label="Close dialog">Close</button>
+        <button (click)="onSubmit()" [disabled]="isDisabled" class="create-button" aria-label="Return equipment">
+          Return
+        </button>
+      </div>
+    </dialog>
+  </div>
+}
