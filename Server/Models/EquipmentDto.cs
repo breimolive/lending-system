@@ -10,7 +10,6 @@ public class EquipmentDto
     public string? SerialNumber { get; set; }
     public DateTime CreatedAt { get; set; }
     public DateTime? UpdatedAt { get; set; }
-
     public LoanDto? CurrentLoan { get; set; }
     public required CategoryDto Category { get; set; }
 }

@@ -6,6 +6,7 @@ public class LoanDto
     public required UserDto PreformedBy { get; set; }
     public required Guid PreformedById { get; set; }
     public required EquipmentDto Equipment { get; set; }
+    public required BorrowerDto Borrower { get; set; }
     public required Guid EquipmentId { get; set; }
     public required DateTime DueDate { get; set; }
     public required DateTime LoanDate { get; set; }
