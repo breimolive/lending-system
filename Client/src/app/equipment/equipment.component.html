@@ -2,7 +2,7 @@
   <div class="equipment-detail">
     <div class="equipment-head">
       <div class="equipment-header">
-        <h2>{{ equipment.name }}</h2>
+        <h1>{{ equipment.name }}</h1>
         <div class="status" [ngClass]="{
           'available': equipment.status === 'Available',
           'borrowed': equipment.status === 'Borrowed',
@@ -10,34 +10,55 @@
         }">
           <p>{{ equipment.status }}</p>
         </div>
-      </div>
-      <div class="equipment-head-actions text-body-bold">
-        <button>Modify</button>
-        @if (!equipment.currentLoan && equipment.status === EquipmentStatus.available) {
-          <button class="create-button">Loan</button>
-        }
-        @if (equipment.currentLoan &&
-        equipment.status === EquipmentStatus.borrowed &&
-        user && equipment.currentLoan.preformedBy.id === user.id) {
-          <button class="create-button">Return</button>
-        }
-        <button class="delete-button">Delete</button>
+        </div>
+        <div class="equipment-head-actions text-body-bold">
+          <button (click)="modifyDialogComponent.openDialog()">Modify</button>
+          @if (!equipment.currentLoan && equipment.status === EquipmentStatus.available) {
+            <button class="create-button" (click)="borrowDialogComponent.openDialog()">Loan</button>
+          }
+          @if (equipment.currentLoan &&
+          equipment.status === EquipmentStatus.borrowed &&
+          user && equipment.currentLoan.preformedBy.id === user.id) {
+            <button class="create-button" (click)="returnDialogComponent.openDialog()">Return</button>
+          }
+          <button (click)="deleteDialogComponent.openDialog()" class="delete-button">Delete</button>
       </div>
     </div>
-    <div class="equipment-body">
-      <p>{{ equipment.description }}</p>
-      <p>Category: {{ equipment.category.name }}</p>
-      @if (equipment.currentLoan && equipment.currentLoan.preformedBy) {
-        <div class="borrower-info">
-          <h3>Current Borrower</h3>
-          <p>Name: {{ equipment.currentLoan.preformedBy.fullName }}</p>
-          <p>Loan Date: {{ equipment.currentLoan.loanDate | date }}</p>
-          @if (equipment.currentLoan.returnDate) {
-            <p>Return Date: {{ equipment.currentLoan.returnDate | date }}</p>
-          }
+    <p class="description">{{ equipment.description }}</p>
+
+    <div class="meta-inline">
+      <div class="meta-inline-item">
+        <span class="label">Category:</span>
+        <span class="value">{{ equipment.category.name }}</span>
+      </div>
+      <span class="meta-inline-divider">|</span>
+      <div class="meta-inline-item">
+        <span class="label">Serial Number:</span>
+        <span class="value">equipment.serialNumber</span>
+      </div>
+      <span class="meta-inline-divider">|</span>
+      <div class="meta-inline-item">
+        <span class="label">Created at:</span>
+        <span class="value">{{ equipment.createdAt | date }}</span>
+      </div>
+      @if (equipment.modifiedAt) {
+        <span class="meta-inline-divider">|</span>
+        <div class="meta-inline-item">
+          <span class="label">Modified at:</span>
+          <span class="value">{{ equipment.modifiedAt | date }}</span>
         </div>
       }
     </div>
+    @if (equipment.currentLoan && equipment.currentLoan.preformedBy) {
+      <div class="borrower-info">
+        <h3>Current Borrower</h3>
+        <p>Borrowed by {{ equipment.currentLoan.preformedBy.fullName }}.</p>
+        <p>Loan Date: {{ equipment.currentLoan.loanDate | date }}.</p>
+        @if (equipment.currentLoan.returnDate) {
+          <p>Return Date: {{ equipment.currentLoan.returnDate | date }}</p>
+        }
+      </div>
+    }
     <div class="equipment-footer">
       <h3>Loan History</h3>
       @if (loans && loans.length > 0) {
@@ -66,4 +87,8 @@
       }
     </div>
   </div>
+  <app-modify-dialog #modifyDialogComponent (refresh)="reFetchEquipment()" [equipment]="equipment"></app-modify-dialog>
+  <app-borrow-dialog #borrowDialogComponent [equipment]="equipment" (refresh)="reFetchEquipment()"></app-borrow-dialog>
+  <app-return-dialog #returnDialogComponent (refresh)="reFetchEquipment()" [equipment]="equipment"></app-return-dialog>
+  <app-delete-dialog #deleteDialogComponent (refresh)="reRoute()" [equipment]="equipment"></app-delete-dialog>
 }

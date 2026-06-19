@@ -3,6 +3,10 @@ import {ApiService, EquipmentDto, EquipmentStatus, loanDto, UserDto} from "../ap
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
 import {DatePipe, NgClass} from "@angular/common";
+import {BorrowDialogComponent} from "../borrow-dialog/borrow-dialog.component";
+import {ModifyDialogComponent} from "../modify-dialog/modify-dialog.component";
+import {DeleteDialogComponent} from "../delete-dialog/delete-dialog.component";
+import {ReturnDialogComponent} from "../return-dialog/return-dialog.component";
 
 @Component({
   selector: 'app-equipment',
@@ -10,12 +14,15 @@ import {DatePipe, NgClass} from "@angular/common";
   templateUrl: './equipment.component.html',
   imports: [
     NgClass,
-    DatePipe
+    DatePipe,
+    BorrowDialogComponent,
+    ModifyDialogComponent,
+    DeleteDialogComponent,
+    ReturnDialogComponent
   ],
   styleUrl: './equipment.component.css'
 })
 export class EquipmentComponent implements OnInit, OnDestroy {
-  user: UserDto | null = null;
   currentTaskValue: EquipmentDto | null = null;
   equipment: EquipmentDto | null = null;
   loans: loanDto[] | null = null;
@@ -23,6 +30,7 @@ export class EquipmentComponent implements OnInit, OnDestroy {
   subs = new Subscription();
   equipmentId: string | null = null;
   currentLoan: loanDto | null = null;
+  user: UserDto | null = null;
 
   constructor(
     private api: ApiService,
@@ -79,7 +87,9 @@ export class EquipmentComponent implements OnInit, OnDestroy {
   reFetchEquipment() {
     if (this.equipmentId) {
       this.api.getEquipment(this.equipmentId)?.subscribe(e => {
+        console.log(e);
         this.currentTaskValue = e;
+        this.equipment = e
         if (e) {
           this.selectedStatus = e.status;
         }
@@ -89,6 +99,10 @@ export class EquipmentComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
+  }
+
+  reRoute() {
+    void this.router.navigate(['/']);
   }
 
   fetchLoans() {
