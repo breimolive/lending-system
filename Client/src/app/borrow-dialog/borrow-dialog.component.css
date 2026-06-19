@@ -1,0 +1,30 @@
+.dialog-body {
+  padding-top: var(--geist-space-4x) !important;
+}
+
+h3 {
+  margin: 0;
+}
+
+.informative-text {
+  padding-block: var(--geist-space-4x);
+}
+
+.options {
+  padding-top: var(--geist-space-2x);
+  gap: var(--geist-space-4x);
+  display: flex;
+  width: 400px;
+}
+
+.options button:hover {
+  background-color: oklch(0.916 0 89.876);
+}
+
+.closeBtn:hover {
+  background-color: oklch(0.916 0 89.876);
+}
+
+.not-disabled-input {
+  color: oklch(0.191 0 89.876) !important;
+}

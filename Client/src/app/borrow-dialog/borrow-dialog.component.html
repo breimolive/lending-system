@@ -1,0 +1,216 @@
+@if (borrowerForm && isOpen && equipment && loanForm) {
+  <div class="dialog-overlay">
+    <dialog
+      class="dialog"
+      #dialog
+      (keydown.esc)="closeDialog()"
+      (click)="onDialogClick($event)"
+    >
+      <div class="dialog-header">
+        @if (this.equipment) {
+          <h2 class="dialog-title">Loan equipment</h2>
+        }
+      </div>
+      <div class="dialog-body">
+        <h3>Contact form</h3>
+        <p>Fill out the contact form below to loan your equipment.</p>
+
+        <div class="informative-text">
+          <span>Already have an account? Enter your email address and we'll automatically fill in your details.</span>
+        </div>
+        <form [formGroup]="borrowerForm" (submit)="onSubmit()">
+          <div class="input-wrapper">
+            <label for="firstName">First name<span>*</span></label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              [class.invalid-input]="borrowerForm.get('firstName')?.invalid && (borrowerForm.get('firstName')?.touched)"
+              autocomplete="name"
+              placeholder="Enter first name"
+              aria-label="firstName"
+              required
+              formControlName="firstName"
+              [attr.aria-invalid]="(borrowerForm.get('firstName')?.invalid && (borrowerForm.get('firstName')?.touched
+              )) ? 'true' : (borrowerForm.valid ? 'false' : null)"
+              [attr.aria-describedby]="(borrowerForm.get('firstName')?.hasError('required')
+              && (borrowerForm.get('firstName')?.touched)) ? 'reg-firstName-error' : null"
+            />
+            @if (borrowerForm.get('firstName')?.errors?.['required'] &&
+            borrowerForm.get('firstName')?.touched || borrowerForm.get('firstName')?.hasError('required') &&
+            (borrowerForm.get('firstName')?.touched)) {
+              <div role="alert" aria-live="assertive" class="input-invalid">
+                <p class="text-body" id="reg-firstName-error">First name is required.</p>
+              </div>
+            }
+            @if (borrowerForm.get('firstName')?.errors?.['maxlength'] &&
+            borrowerForm.get('firstName')?.touched || borrowerForm.get('firstName')?.hasError('maxlength') &&
+            (borrowerForm.get('firstName')?.touched)) {
+              <div role="alert" aria-live="assertive" class="input-invalid">
+                <p class="text-body" id="reg-firstName-error">First name cannot be longer then 100 character long.</p>
+              </div>
+            }
+            @if (borrowerForm.get('firstName')?.errors?.['minlength'] &&
+            borrowerForm.get('firstName')?.touched || borrowerForm.get('firstName')?.hasError('minlength') &&
+            (borrowerForm.get('firstName')?.touched)) {
+              <div role="alert" aria-live="assertive" class="input-invalid">
+                <p class="text-body" id="reg-firstName-error">First name cannot be shorter then 3 character.</p>
+              </div>
+            }
+          </div>
+          <div class="input-wrapper">
+            <label for="lastName">Last name<span>*</span></label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              [class.invalid-input]="borrowerForm.get('lastName')?.invalid && (borrowerForm.get('lastName')?.touched)"
+              autocomplete="name"
+              placeholder="Enter Last name"
+              aria-label="lastName"
+              required
+              formControlName="lastName"
+              [attr.aria-invalid]="(borrowerForm.get('lastName')?.invalid && (borrowerForm.get('lastName')?.touched
+              )) ? 'true' : (borrowerForm.valid ? 'false' : null)"
+              [attr.aria-describedby]="(borrowerForm.get('lastName')?.hasError('required')
+              && (borrowerForm.get('lastName')?.touched)) ? 'reg-lastName-error' : null"
+            />
+            @if (borrowerForm.get('lastName')?.errors?.['required'] &&
+            borrowerForm.get('lastName')?.touched || borrowerForm.get('lastName')?.hasError('required') &&
+            (borrowerForm.get('lastName')?.touched)) {
+              <div role="alert" aria-live="assertive" class="input-invalid">
+                <p class="text-body" id="reg-lastName-error">Last name is required.</p>
+              </div>
+            }
+            @if (borrowerForm.get('lastName')?.errors?.['maxlength'] &&
+            borrowerForm.get('lastName')?.touched || borrowerForm.get('lastName')?.hasError('maxlength') &&
+            (borrowerForm.get('lastName')?.touched)) {
+              <div role="alert" aria-live="assertive" class="input-invalid">
+                <p class="text-body" id="reg-lastName-error">Last name cannot be longer then 100 character long.</p>
+              </div>
+            }
+            @if (borrowerForm.get('lastName')?.errors?.['minlength'] &&
+            borrowerForm.get('lastName')?.touched || borrowerForm.get('lastName')?.hasError('minlength') &&
+            (borrowerForm.get('lastName')?.touched)) {
+              <div role="alert" aria-live="assertive" class="input-invalid">
+                <p class="text-body" id="reg-lastNamee-error">Last name cannot be shorter then 3 character.</p>
+              </div>
+            }
+          </div>
+          <div class="input-wrapper">
+            <label for="email">
+              E-mail<span>*</span>
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Enter email adress"
+              name="email"
+              [class.invalid-input]="borrowerForm.get('email')?.invalid && (borrowerForm.get('email')?.touched)"
+              [class.not-disabled-input]="!borrowerForm.get('email')?.disabled"
+              autocomplete="email"
+              aria-label="email"
+              formControlName="email"
+              required
+              [attr.aria-invalid]="(borrowerForm.get('email')?.invalid && (borrowerForm.get('email')?.touched
+              )) ? 'true' : (borrowerForm.valid ? 'false' : null)"
+              [attr.aria-describedby]="(borrowerForm.get('email')?.hasError('required')
+              && (borrowerForm.get('email')?.touched)) ? 'reg-email-error' : null"
+            >
+            @if (borrowerForm.get('email')?.errors?.['required'] &&
+            borrowerForm.get('email')?.touched || borrowerForm.get('email')?.hasError('required')) {
+              <div role="alert" aria-live="assertive" class="input-invalid">
+                <p class="text-body" id="reg-email-required-error">Email is required.</p>
+              </div>
+            }
+            @if (borrowerForm.get('email')?.errors?.['pattern'] &&
+            borrowerForm.get('email')?.touched) {
+              <div role="alert" aria-live="assertive" class="input-invalid">
+                <p class="text-body" id="reg-email-pattern-error">
+                  Invalid email. Example:
+                  <span class="text-span-example">test&#64;example.com</span>
+                </p>
+              </div>
+            }
+          </div>
+          <div class="input-wrapper">
+            <label for="phoneNumber">Phone number<span>*</span></label>
+            <input
+              type="text"
+              id="phoneNumber"
+              name="phoneNumber"
+              autocomplete="phone"
+              placeholder="Enter Phone number"
+              aria-label="Phone number"
+              [class.invalid-input]="borrowerForm.get('phoneNumber')?.invalid && (borrowerForm.get('phoneNumber')?.touched)"
+              formControlName="phoneNumber"
+              required
+              inputmode="numeric"
+              pattern="^\d{8}$"
+              maxlength="8"
+              [attr.aria-invalid]="(borrowerForm.get('phoneNumber')?.invalid && (borrowerForm.get('phoneNumber')?.touched
+                    )) ? 'true' : (borrowerForm.valid ? 'false' : null)"
+              [attr.aria-describedby]="(borrowerForm.get('phoneNumber')?.hasError('required')
+                    && (borrowerForm.get('phoneNumber')?.touched)) ? 'reg-phoneNumber-error' : null"
+            />
+            @if (borrowerForm.get('phoneNumber')?.hasError('maxlength') && borrowerForm.get('phoneNumber')?.touched) {
+              <div
+                role="alert"
+                aria-live="assertive"
+                class="input-invalid"
+              >
+                <p class="text-body" id="reg-serialNumber-error">
+                  Serial number cannot be longer then 14 characters.
+                </p>
+              </div>
+            }
+            @if (borrowerForm.get('phoneNumber')?.hasError('pattern') && !borrowerForm.get('phoneNumber')?.hasError('minlength') && borrowerForm.get('phoneNumber')?.touched) {
+              <div
+                role="alert"
+                aria-live="assertive"
+                class="input-invalid"
+              >
+                <p class="text-body" id="reg-serialNumber-error">
+                  Phone number has an invalid pattern, correct pattern: 8 digits.
+                </p>
+              </div>
+            }
+            @if (borrowerForm.get('phoneNumber')?.errors?.['maxlength'] &&
+            borrowerForm.get('phoneNumber')?.touched || borrowerForm.get('phoneNumber')?.hasError('maxlength') &&
+            (borrowerForm.get('serialNumber')?.touched)) {
+              <div role="alert" aria-live="assertive" class="input-invalid">
+                <p class="text-body" id="reg-phoneNumber-error">Phone number cannot be longer then 8 character
+                  long.</p>
+              </div>
+            }
+            @if (borrowerForm.get('phoneNumber')?.errors?.['minlength'] &&
+            borrowerForm.get('phoneNumber')?.touched || borrowerForm.get('phoneNumber')?.hasError('minlength') &&
+            (borrowerForm.get('phoneNumber')?.touched)) {
+              <div role="alert" aria-live="assertive" class="input-invalid">
+                <p class="text-body" id="reg-phoneNumber-error">phoneNumber cannot be shorter then 8 character
+                  long.</p>
+              </div>
+            }
+          </div>
+          <div class="double-column">
+          <p style="padding-top: var(--geist-space-2x)">How long would you like to loan this equipment?</p>
+            <form [formGroup]="loanForm">
+              <div class="options">
+                <button (click)="dueDate = '7'">7 days</button>
+                <button (click)="dueDate = '14'">14 days</button>
+                <button (click)="dueDate = '1'">1 month</button>
+              </div>
+            </form>
+          </div>
+        </form>
+      </div>
+      <div class="dialog-footer">
+        <button (click)="closeDialog()" class="closeBtn" aria-label="Close dialog">Close</button>
+        <button (click)="onSubmit()" [disabled]="isDisabled" class="create-button"
+                aria-label="Create new borrower and loan">
+          Loan
+        </button>
+      </div>
+    </dialog>
+  </div>
+}
