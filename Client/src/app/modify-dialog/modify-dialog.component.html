@@ -7,7 +7,7 @@
       (click)="onDialogClick($event)"
     >
       <div class="dialog-header">
-        <h2 class="dialog-title">Create Equipment</h2>
+        <h2 class="dialog-title">Modify Equipment</h2>
       </div>
       <div class="dialog-body">
         <form [formGroup]="form" (submit)="onSubmit()">
@@ -169,8 +169,8 @@
       </div>
       <div class="dialog-footer">
         <button (click)="closeDialog()" class="closeBtn" aria-label="Close dialog">Close</button>
-        <button (click)="onSubmit()" [disabled]="isDisabled" class="create-button" aria-label="Create new equipment">
-          Create
+        <button (click)="onSubmit()" [disabled]="isDisabled" class="create-button" aria-label="Modify new equipment">
+          Save
         </button>
       </div>
     </dialog>
