@@ -49,7 +49,6 @@ export interface EquipmentDto {
 
 export interface EquipmentCreateDto {
   name: string;
-  status: EquipmentStatus;
   categoryName: string;
   description?: string;
   serialNumber?: string;
@@ -88,6 +87,7 @@ export interface loanDto {
   id: string;
   preformedBy: UserDto;
   equipment: EquipmentDto;
+  borrower: BorrowerDto;
   loanDate: string;
   dueDate: string;
   returnDate?: string;
@@ -98,8 +98,6 @@ export interface loanCreateDto {
   borrowerId: string;
   preformedById: string;
   equipmentId: string;
-  status: LoanStatus;
-  loanDate: string;
   dueDate: string;
 }
 
@@ -170,16 +168,20 @@ export class ApiService {
     return this.http.post<CategoryDto>('/api/v1/equipment/category', {name});
   }
 
-  updateTask(equipmentId: string, equipment: EquipmentUpdateDto): Observable<EquipmentDto> {
+  updateEquipment(equipmentId: string, equipment: EquipmentUpdateDto): Observable<EquipmentDto> {
     return this.http.put<EquipmentDto>(`/api/v1/equipment/update/${equipmentId}`, equipment);
   }
 
-  deleteTask(equipmentId: string): Observable<void> {
+  deleteEquipment(equipmentId: string): Observable<void> {
     return this.http.delete<void>(`/api/v1/equipment/delete/${equipmentId}`);
   }
 
   getLoans(equipmentId: string): Observable<loanDto[]> {
     return this.http.get<loanDto[]>(`/api/v1/loans/equipment/${equipmentId}/loans`);
+  }
+
+  getBorrower(email: string): Observable<BorrowerDto> {
+    return this.http.get<BorrowerDto>(`/api/v1/user/borrower/email/${email}`);
   }
 
   createLoan(loan: loanCreateDto): Observable<loanDto> {

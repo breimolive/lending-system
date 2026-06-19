@@ -1,0 +1,135 @@
+.dialog-overlay {
+  background: oklch(0 0 0 / 0.5);
+  padding: var(--geist-space-4x);
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  display: flex;
+  inset: 0;
+}
+
+.dialog-head {
+  padding-inline: var(--geist-space-6x);
+  padding-block: var(--geist-space-5x);
+  align-items: center;
+}
+
+dialog {
+  --radius: 1.563rem;
+
+  box-shadow: 0 var(--geist-space) var(--geist-space-gap-half) oklch(0 0 0 / 0.2);
+  padding-inline: var(--geist-space-8x);
+  padding-block: var(--geist-space-6x);
+  border-radius: var(--radius);
+  gap: var(--geist-space-4x);
+  flex-direction: column;
+  height: fit-content;
+  overflow: visible;
+  max-height: 675px;
+  max-width: 540px;
+  display: flex;
+  border: none;
+  width: auto;
+}
+
+dialog::backdrop {
+  --tw-backdrop-blur: blur(3px);
+
+  backdrop-filter: var(--tw-backdrop-blur);
+}
+
+.dialog-footer {
+  padding-top: var(--geist-space-4x);
+  justify-content: space-between;
+  display: flex;
+}
+
+.dialog-body {
+  border-top: 1px solid oklch(0.732 0 89.876);
+  padding-top: 26px;
+}
+
+.dialog-title {
+  line-height: var(--geist-space-9x);
+  font-size: var(--geist-space-8x);
+  text-wrap: balance;
+  letter-spacing: 0;
+  font-weight: 652;
+}
+
+button:focus, input:focus, select:focus {
+  outline: 2px solid oklch(0 0 0);
+  outline-offset: 2px;
+}
+
+button {
+  padding-inline: var(--geist-space-4x);
+  border-radius: var(--rounded-full);
+  font-size: var(--geist-space-4x);
+  letter-spacing: .2px;
+  position: relative;
+  line-height: 22px;
+  font-weight: 600;
+  cursor: pointer;
+  height: 44px;
+}
+
+form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--geist-space-4x);
+  display: grid;
+  width: 100%;
+}
+
+.input-wrapper {
+  line-height: var(--geist-space-5x);
+  gap: var(--geist-space-2x);
+  flex-direction: column;
+  letter-spacing: .2px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+}
+
+.input-wrapper input, select {
+  background-color: oklch(0.967 0 89.876);
+  padding-inline: var(--geist-space-4x);
+  border-radius: var(--geist-space-4x);
+  padding-block: var(--geist-space-3x);
+  font-size: var(--geist-space-4x);
+  height: var(--geist-space-12x);
+  color: oklch(0.493 0 89.876);
+  letter-spacing: .2px;
+  line-height: 22px;
+  border: none;
+}
+
+.input-wrapper input::placeholder {
+  color: oklch(0.493 0 89.876);
+}
+
+.double-column {
+  grid-column: span 2 / span 2;
+}
+
+input[type="text"],
+textarea {
+  field-sizing: content;
+}
+
+textarea {
+  min-height: 40px;
+  width: 100%;
+  resize: none;
+  background-color: oklch(0.967 0 89.876);
+  padding-inline: var(--geist-space-4x);
+  border-radius: var(--geist-space-4x);
+  padding-block: var(--geist-space-3x);
+  font-size: var(--geist-space-4x);
+  color: oklch(0.493 0 89.876);
+  letter-spacing: .2px;
+  line-height: 22px;
+  border: none;
+  scrollbar-width: none;
+}
+

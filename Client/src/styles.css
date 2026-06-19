@@ -434,7 +434,7 @@ input, button {
   }
 
   .available {
-    background-color: oklch(0.979 0.021 166.113);
+    background-color: oklch(0.94 0.039 165.621);
     color: oklch(0.627 0.17 149.214);
   }
 
