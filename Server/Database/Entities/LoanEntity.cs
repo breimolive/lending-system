@@ -27,13 +27,13 @@ public class LoanEntity
     }
 #pragma warning restore CS8618
 
-    public LoanEntity(DateTime loanDate, DateTime dueDate, LoanStatus status, EquipmentEntity equipment,
+    public LoanEntity(DateTime loanDate, DateTime dueDate, EquipmentEntity equipment,
         BorrowerEntity borrower, UserEntity preformedBy)
     {
         Id = Guid.NewGuid();
         LoanDate = loanDate;
         DueDate = dueDate;
-        Status = status;
+        Status = LoanStatus.OnLoan;
         Equipment = equipment;
         EquipmentId = equipment.Id;
         Borrower = borrower;
@@ -69,6 +69,10 @@ public class LoanEntity
                 throw new InvalidOperationException(
                     $"Loan {Id} has null PreformedBy. Ensure `PreformedBy` is included when querying the database before mapping to DTO (use Include(l => l.PreformedBy)).");
 
+            if (Borrower is null)
+                throw new InvalidOperationException(
+                    $"Loan {Id} has null Borrower. Ensure `Borrower` is included when querying the database before mapping to DTO (use Include(l => l.Borrower)).");
+            
             return new LoanDto
             {
                 Id = Id,
@@ -76,6 +80,7 @@ public class LoanEntity
                 PreformedBy = PreformedBy.ToDto(),
                 EquipmentId = EquipmentId,
                 Equipment = (includeEquipment ? Equipment.ToDto(includeCurrentLoan: false) : null)!,
+                Borrower = Borrower.ToDto(),
                 LoanDate = LoanDate,
                 DueDate = DueDate,
                 ReturnDate = ReturnDate,

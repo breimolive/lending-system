@@ -36,14 +36,14 @@ public class EquipmentEntity
     }
 #pragma warning restore CS8618
 
-    public EquipmentEntity(string name, string? description, string? serialNumber, EquipmentStatus status,
+    public EquipmentEntity(string name, string? description, string? serialNumber,
         CategoryEntity category)
     {
         Id = Guid.NewGuid();
         Name = name;
         Description = description;
         SerialNumber = serialNumber;
-        Status = status;
+        Status = EquipmentStatus.Available;
         Category = category;
         CategoryId = category.Id;
     }
