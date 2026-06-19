@@ -71,6 +71,15 @@ public class UserController : ControllerBase
         return await _userService.CreateBorrower(request);
     }
     
+    [HttpGet("borrower/email/{email}")]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(BorrowerDto), StatusCodes.Status200OK)]
+    public async Task<BorrowerDto> GetBorrowerByEmail(string email)
+    {
+        return await _userService.GetBorrower(email);
+    }
+    
     [HttpPost("logout")]
     public async Task<IActionResult> Logout()
     {
