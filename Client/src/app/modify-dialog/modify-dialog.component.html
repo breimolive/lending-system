@@ -1,0 +1,178 @@
+@if (form && isOpen && equipment) {
+  <div class="dialog-overlay">
+    <dialog
+      class="dialog"
+      #dialog
+      (keydown.esc)="closeDialog()"
+      (click)="onDialogClick($event)"
+    >
+      <div class="dialog-header">
+        <h2 class="dialog-title">Create Equipment</h2>
+      </div>
+      <div class="dialog-body">
+        <form [formGroup]="form" (submit)="onSubmit()">
+          <div class="double-column">
+            <div class="input-wrapper">
+              <label for="name">Name<span>*</span></label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [class.invalid-input]="form.get('name')?.invalid && (form.get('name')?.touched)"
+                autocomplete="name"
+                placeholder="Enter equipment name"
+                aria-label="name"
+                required
+                formControlName="name"
+                [attr.aria-invalid]="(form.get('name')?.invalid && (form.get('name')?.touched
+              )) ? 'true' : (form.valid ? 'false' : null)"
+                [attr.aria-describedby]="(form.get('name')?.hasError('required')
+              && (form.get('name')?.touched)) ? 'reg-name-error' : null"
+              />
+              @if (form.get('name')?.errors?.['required'] &&
+              form.get('name')?.touched || form.get('name')?.hasError('required') &&
+              (form.get('name')?.touched)) {
+                <div role="alert" aria-live="assertive" class="input-invalid">
+                  <p class="text-body" id="reg-name-error">Equipment name is required.</p>
+                </div>
+              }
+              @if (form.get('name')?.errors?.['maxlength'] &&
+              form.get('name')?.touched || form.get('name')?.hasError('maxlength') &&
+              (form.get('name')?.touched)) {
+                <div role="alert" aria-live="assertive" class="input-invalid">
+                  <p class="text-body" id="reg-name-error">Equipment name cannot be longer then 100 character long.</p>
+                </div>
+              }
+              @if (form.get('name')?.errors?.['minlength'] &&
+              form.get('name')?.touched || form.get('name')?.hasError('minlength') &&
+              (form.get('name')?.touched)) {
+                <div role="alert" aria-live="assertive" class="input-invalid">
+                  <p class="text-body" id="reg-name-error">Equipment name cannot be shorter then 3 character.</p>
+                </div>
+              }
+            </div>
+          </div>
+          @if (form.get('categoryName')?.value != null) {
+            <div class="input-wrapper">
+              <label for="categoryName">Category<span>*</span></label>
+              <select
+                id="categoryName"
+                aria-label="Category Name"
+                formControlName="categoryName"
+                required
+                [class.invalid-input]="form.get('categoryName')?.invalid && (form.get('categoryName')?.touched)"
+                [attr.aria-invalid]="(form.get('categoryName')?.invalid && (form.get('categoryName')?.touched
+              )) ? 'true' : (form.valid ? 'false' : null)"
+                [attr.aria-describedby]="(form.get('categoryName')?.hasError('required')
+              && (form.get('categoryName')?.touched)) ? 'reg-categoryName-error' : null">
+                <option value="" selected disabled>Select a category...</option>
+                @if (categories) {
+                  @for (category of categories; track category.id) {
+                    <option [value]="category.name" class="text-body">
+                      {{ category.name }}
+                    </option>
+                  }
+                }
+              </select>
+              @if (form.get('categoryName')?.errors?.['required'] &&
+              form.get('categoryName')?.touched || form.get('categoryName')?.hasError('required') &&
+              (form.get('categoryName')?.touched)) {
+                <div role="alert" aria-live="assertive" class="input-invalid">
+                  <p class="text-body" id="reg-categoryName-error">Category is required.</p>
+                </div>
+              }
+            </div>
+          }
+          @if (form.get('serialNumber')?.value != null) {
+            <div class="input-wrapper">
+              <label for="serialNumber">Serial number</label>
+              <input
+                type="text"
+                id="serialNumber"
+                name="serialNumber"
+                autocomplete="name"
+                placeholder="Enter serial number"
+                aria-label="Serial number"
+                [class.invalid-input]="form.get('serialNumber')?.invalid && (form.get('serialNumber')?.touched)"
+                formControlName="serialNumber"
+                inputmode="numeric"
+                pattern="^\d{14}$"
+                maxlength="14"
+                [attr.aria-invalid]="(form.get('serialNumber')?.invalid && (form.get('serialNumber')?.touched
+                    )) ? 'true' : (form.valid ? 'false' : null)"
+                [attr.aria-describedby]="(form.get('serialNumber')?.hasError('required')
+                    && (form.get('serialNumber')?.touched)) ? 'reg-serialNumber-error' : null"
+              />
+              @if (form.get('serialNumber')?.hasError('maxlength') && form.get('serialNumber')?.touched) {
+                <div
+                  role="alert"
+                  aria-live="assertive"
+                  class="input-invalid"
+                >
+                  <p class="text-body" id="reg-serialNumber-error">
+                    Serial number cannot be longer then 14 characters.
+                  </p>
+                </div>
+              }
+              @if (form.get('serialNumber')?.hasError('pattern') && !form.get('serialNumber')?.hasError('minlength') && form.get('serialNumber')?.touched) {
+                <div
+                  role="alert"
+                  aria-live="assertive"
+                  class="input-invalid"
+                >
+                  <p class="text-body" id="reg-serialNumber-error">
+                    Serial number has an invalid pattern, correct pattern: 13 digits.
+                  </p>
+                </div>
+              }
+              @if (form.get('serialNumber')?.errors?.['maxlength'] &&
+              form.get('serialNumber')?.touched || form.get('serialNumber')?.hasError('maxlength') &&
+              (form.get('serialNumber')?.touched)) {
+                <div role="alert" aria-live="assertive" class="input-invalid">
+                  <p class="text-body" id="reg-serialNumber-error">Serial number cannot be longer then 14 character
+                    long.</p>
+                </div>
+              }
+              @if (form.get('serialNumber')?.errors?.['minlength'] &&
+              form.get('serialNumber')?.touched || form.get('serialNumber')?.hasError('minlength') &&
+              (form.get('serialNumber')?.touched)) {
+                <div role="alert" aria-live="assertive" class="input-invalid">
+                  <p class="text-body" id="reg-serialNumber-error">Serial number cannot be shorter then 14 character
+                    long.</p>
+                </div>
+              }
+            </div>
+          }
+          @if (form.get('description')?.value != null) {
+            <div class="double-column">
+              <div class="input-wrapper">
+                <label for="description">Description</label>
+                <textarea
+                  name="description"
+                  id="description"
+                  placeholder="Enter description"
+                  aria-label="description"
+                  [class.invalid-input]="form.get('description')?.invalid && (form.get('description')?.touched)"
+                  formControlName="description"></textarea>
+                @if (form.get('description')?.errors?.['maxlength'] &&
+                form.get('description')?.touched || form.get('description')?.hasError('maxlength') &&
+                (form.get('description')?.touched)) {
+                  <div role="alert" aria-live="assertive" class="input-invalid">
+                    <p class="text-body" id="reg-description-error">Description cannot be longer then 500 character
+                      long.</p>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </form>
+      </div>
+      <div class="dialog-footer">
+        <button (click)="closeDialog()" class="closeBtn" aria-label="Close dialog">Close</button>
+        <button (click)="onSubmit()" [disabled]="isDisabled" class="create-button" aria-label="Create new equipment">
+          Create
+        </button>
+      </div>
+    </dialog>
+  </div>
+}
