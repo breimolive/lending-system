@@ -3,6 +3,7 @@ import {ApiService, EquipmentQueriedDto, EquipmentQueryDto} from "../api.service
 import {EquipmentsHeaderComponent} from "../equipments-header/equipments-header.component";
 import {NgClass} from "@angular/common";
 import {RouterLink} from "@angular/router";
+import {CreateDialogComponent} from "../create-dialog/create-dialog.component";
 
 @Component({
   selector: 'app-equipments',
@@ -11,7 +12,8 @@ import {RouterLink} from "@angular/router";
   imports: [
     EquipmentsHeaderComponent,
     NgClass,
-    RouterLink
+    RouterLink,
+    CreateDialogComponent
   ],
   styleUrls: ['./equipments.component.css']
 })

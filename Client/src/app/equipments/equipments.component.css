@@ -72,7 +72,6 @@ h3 {
 }
 
 .pagination-wrapper {
-  padding-inline: var(--geist-space-4x);
   gap: var(--geist-space-3x);
   align-items: center;
   display: flex;
@@ -109,4 +108,17 @@ h3 {
 .status {
   flex: 0 0 auto;
   align-self: center;
+}
+
+.footer-wrapper {
+  padding-inline: var(--geist-space-4x);
+  justify-content: space-between;
+  display: flex;
+  gap: 1rem;
+}
+
+.create-button {
+  padding-inline: var(--geist-space-3x);
+  padding-block: var(--geist-space-2x);
+  border-radius: var(--rounded-full);
 }
