@@ -1,3 +1,8 @@
+---
+layout: page
+title: Vurdering av eget prøvearbeid
+---
+
 # Fagprøve IKT — tjenesteutviklerfaget - Vurdering av eget prøvearbeid
 
 **Kandidat**: Heine Breimo

@@ -1,3 +1,8 @@
+---
+layout: page
+title: Dokumentasjon av prøvearbeidet
+---
+
 # Fagprøve IKT — tjenesteutviklerfaget — Dokumentasjon av prøvearbeidet
 
 **Kandidat**: Heine Breimo
