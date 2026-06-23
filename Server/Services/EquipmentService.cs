@@ -140,7 +140,7 @@ public class EquipmentService
             .Include(x => x.Category)
             .Where(x => !x.IsDeleted)
             .FirstOrDefaultAsync(x => x.Id == id);
-
+        
         return equipment == null ? throw new NotFoundException("Equipment not found") : equipment.ToDto();
     }
 

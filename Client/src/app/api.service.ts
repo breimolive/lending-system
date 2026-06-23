@@ -9,7 +9,7 @@ export enum EquipmentStatus {
   maintained = 'Maintained'
 }
 
-enum LoanStatus {
+export enum LoanStatus {
   onLoan = 'on loan',
   returned = 'returned'
 }
@@ -189,6 +189,8 @@ export class ApiService {
   }
 
   returnLoan(loanId: string): Observable<loanDto> {
-    return this.http.post<loanDto>(`/api/v1/loans/${loanId}/return`, {});
+    return this.http.post<loanDto>(`/api/v1/loans/return`, JSON.stringify(loanId), {
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 }

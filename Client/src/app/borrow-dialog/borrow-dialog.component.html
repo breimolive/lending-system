@@ -194,12 +194,20 @@
           </div>
           <div class="double-column">
           <p style="padding-top: var(--geist-space-2x)">How long would you like to loan this equipment?</p>
-            <form [formGroup]="loanForm">
+            <form [formGroup]="loanForm" style="display: flex; flex-direction: column; gap: var(--geist-space-4x);">
               <div class="options">
                 <button (click)="dueDate = '7'">7 days</button>
                 <button (click)="dueDate = '14'">14 days</button>
                 <button (click)="dueDate = '1'">1 month</button>
               </div>
+              @if (!dueDate) {
+              @if (loanForm.get('dueDate')?.errors?.['required'] &&
+              loanForm.get('dueDate')?.touched || loanForm.get('dueDate')?.hasError('required')) {
+                <div role="alert" aria-live="assertive" class="input-invalid">
+                  <p class="text-body" id="reg-dueDate-required-error">Due Date is required.</p>
+                </div>
+              }
+              }
             </form>
           </div>
         </form>

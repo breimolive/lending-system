@@ -1,6 +1,5 @@
 import {ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {ApiService, CategoryDto, EquipmentCreateDto, EquipmentDto, loanDto} from "../api.service";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {ApiService, CategoryDto, EquipmentDto, loanDto} from "../api.service";
 
 @Component({
   selector: 'app-return-dialog',
@@ -19,15 +18,29 @@ export class ReturnDialogComponent implements OnInit {
 
   constructor(
     private cdr: ChangeDetectorRef,
-    private api: ApiService){
+    private api: ApiService) {
   }
 
   ngOnInit(): void {
-      if (this.equipment && this.equipment.currentLoan) {
-        this.loan = this.equipment.currentLoan;
-        console.log(this.loan);
-      }
+    this.LoadLoan();
+  }
+
+  LoadLoan(): void {
+    if (!this.equipment) return;
+    if (!this.equipment.currentLoan) {
+      this.api.getEquipment(this.equipment.id).subscribe(equipment => {
+        if (equipment.currentLoan) {
+          this.loan = equipment.currentLoan;
+          return;
+        } else {
+          console.error("No current loan found for equipment after refresh", equipment);
+          return;
+        }
+      })
+    } else {
+      this.loan = this.equipment.currentLoan;
     }
+  }
 
   openDialog(): void {
     this.isOpen = true;
@@ -41,6 +54,7 @@ export class ReturnDialogComponent implements OnInit {
     if (!dlg.open) {
       dlg.showModal();
     }
+    this.LoadLoan();
   }
 
   closeDialog(): void {
@@ -60,15 +74,18 @@ export class ReturnDialogComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.equipment && this.equipment.currentLoan) {
-      this.api.returnLoan(this.equipment.currentLoan.id).subscribe({
-        next: () => {
-          this.closeDialog();
-        },
-        error: (err) => {
-          console.error("Failed to return equipment", err);
-        }
-      });
+    if (!this.loan || !this.loan.id) {
+      console.error('Cannot return loan: loan or loan.id is missing', this.loan);
+      return;
     }
+
+    this.api.returnLoan(this.loan.id).subscribe({
+      next: () => {
+        this.closeDialog();
+      },
+      error: (err) => {
+        console.error("Failed to return equipment", err);
+      }
+    });
   }
 }

@@ -75,8 +75,14 @@ public class LoanService
         }
         
         var doubleDueDate = double.Parse(request.DueDate);
-        var dueDate = DateTime.UtcNow.AddDays(doubleDueDate);
- 
+        if (doubleDueDate <= 0)
+        {
+            throw new ArgumentException("Due date must be greater than 0");
+        }
+
+        var dueDate = DateTime.UtcNow;
+        dueDate = request.DueDate == "1" ? dueDate.AddMonths(1) : DateTime.UtcNow.AddDays(doubleDueDate);
+
         var loan = new LoanEntity(DateTime.UtcNow, dueDate, equipment, borrower, preformedBy);
         equipment.UpdateStatus(EquipmentStatus.Borrowed);
         _context.Loans.Add(loan);
@@ -117,12 +123,13 @@ public class LoanService
             throw new Exception("Equipment is not borrowed");
         }
         
-        loan.Equipment.UpdateStatus(EquipmentStatus.Available);
-
         if (loan.Status != LoanStatus.Returned)
         {
             loan.UpdateStatus(LoanStatus.Returned);
         }
+        
+        loan.Equipment.UpdateStatus(EquipmentStatus.Available);
+        loan.Equipment.RemoveCurrentLoan();
 
         await _context.SaveChangesAsync();
     }

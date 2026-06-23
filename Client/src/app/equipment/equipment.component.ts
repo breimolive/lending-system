@@ -87,12 +87,12 @@ export class EquipmentComponent implements OnInit, OnDestroy {
   reFetchEquipment() {
     if (this.equipmentId) {
       this.api.getEquipment(this.equipmentId)?.subscribe(e => {
-        console.log(e);
         this.currentTaskValue = e;
         this.equipment = e
         if (e) {
           this.selectedStatus = e.status;
         }
+        this.fetchLoans();
       });
     }
   }
@@ -106,7 +106,6 @@ export class EquipmentComponent implements OnInit, OnDestroy {
   }
 
   fetchLoans() {
-    console.log(this.equipmentId);
     if (this.equipmentId) {
       this.api.getLoans(this.equipmentId)?.subscribe(e => {
         this.loans = e;

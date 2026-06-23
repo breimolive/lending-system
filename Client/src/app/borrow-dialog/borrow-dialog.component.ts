@@ -158,6 +158,8 @@ export class BorrowDialogComponent implements OnInit, OnDestroy {
       dlg.close();
     }
     this.isOpen = false;
+    this.borrowerForm?.reset()
+    this.loanForm?.reset()
     this.refresh.emit(true);
   }
 
@@ -168,7 +170,24 @@ export class BorrowDialogComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    if (!this.borrowerForm || !this.loanForm || !this.equipment) {
+    if (!this.borrowerForm || !this.loanForm) {
+      return;
+    }
+
+    if (!this.equipment) {
+      console.error('Equipment not found');
+      return;
+    }
+
+    const payload = {
+      firstName: this.borrowerForm.get('firstName')?.value,
+      lastName: this.borrowerForm.get('lastName')?.value,
+      email: this.borrowerForm.get('email')?.value || null,
+      phoneNumber: this.borrowerForm.get('phoneNumber')?.value || null
+    } as BorrowerCreateDto;
+
+    if (!payload.email) {
+      console.error('Email is required to lookup borrower.');
       return;
     }
 
@@ -190,13 +209,7 @@ export class BorrowDialogComponent implements OnInit, OnDestroy {
       });
     } else {
       this.borrowerValidationMethod();
-      const payload = {
-        firstName: this.borrowerForm.getRawValue().firstName,
-        lastName: this.borrowerForm.getRawValue().lastName,
-        email: this.borrowerForm.get('email')?.value || null,
-        phoneNumber: this.borrowerForm.getRawValue().phoneNumber || null
-      };
-      this.api.createBorrower(payload as BorrowerCreateDto).subscribe({
+      this.api.createBorrower(payload).subscribe({
         next: () => {
           if (this.user && this.equipment) {
             this.api.getBorrower(payload.email).subscribe({
@@ -235,28 +248,28 @@ export class BorrowDialogComponent implements OnInit, OnDestroy {
   }
 
   borrowerValidationMethod() {
-    if (this.borrowerForm) {
-      if (this.borrowerForm.invalid ||
-        !this.borrowerForm.get('firstName')?.value ||
-        !this.borrowerForm.get('LastName')?.value ||
-        !this.borrowerForm.get('email')?.value ||
-        !this.borrowerForm.get('phoneNumber')?.value
-      ) {
-        this.borrowerForm.markAllAsTouched();
-        return;
-      }
+    if (!this.borrowerForm) return;
+
+    if (
+      this.borrowerForm.invalid ||
+      !this.borrowerForm.get('firstName')?.value ||
+      !this.borrowerForm.get('lastName')?.value ||
+      !this.borrowerForm.get('email')?.value
+    ) {
+      this.borrowerForm.markAllAsTouched();
+      return;
     }
   }
 
   loanValidationMethod() {
-    if (this.borrowerForm) {
-      if (this.borrowerForm.invalid ||
-        !this.borrowerForm.get('dueDate')?.value
+    if (!this.loanForm) return;
+
+      if (this.loanForm.invalid ||
+        !this.loanForm.get('dueDate')?.value
       ) {
-        this.borrowerForm.markAllAsTouched();
+        this.loanForm.markAllAsTouched();
         return;
       }
-    }
   }
 
   ngOnDestroy(): void {

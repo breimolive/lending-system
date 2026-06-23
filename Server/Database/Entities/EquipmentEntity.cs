@@ -108,6 +108,13 @@ public class EquipmentEntity
         Status = status;
         UpdatedAt = DateTime.UtcNow;
     }
+    
+    public void RemoveCurrentLoan()
+    {
+        CurrentLoan = null;
+        CurrentLoanId = null;
+        UpdatedAt = DateTime.UtcNow;
+    }
 
     public void MarkAsDeleted()
     {
