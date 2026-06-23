@@ -46,49 +46,6 @@ public class BorrowerEntity
         PhoneNumber = phoneNumber;
     }
     
-    public void UpdateEmail(string email)
-    {
-        if (email.Length > MaxEmailLength)
-        {
-            throw new ArgumentException($"Email is too long, maximum email length is {MaxEmailLength} characters long.", nameof(email));
-        }
-        
-        Email = email;
-        UpdatedAt = DateTime.UtcNow;
-    }
-    
-    public void UpdateFirstName(string firstName)
-    {
-        if (firstName.Length > MaxFirstNameLength)
-        {
-            throw new ArgumentException($"First name is too long, maximum first name length is {MaxFirstNameLength} characters long.", nameof(firstName));
-        }
-        
-        FirstName = firstName;
-        UpdatedAt = DateTime.UtcNow;
-    }
-    
-    public void UpdateLastName(string lastName)
-    {
-        if (lastName.Length > MaxLastNameLength)
-        {
-            throw new ArgumentException($"Last name is too long, maximum last name length is {MaxLastNameLength} characters long.", nameof(lastName));
-        }
-        
-        LastName = lastName;
-        UpdatedAt = DateTime.UtcNow;
-    }
-
-    public void UpdatePhoneNumber(string phoneNumber)
-    {
-        if (phoneNumber.Length > MaxPhoneNumberLength)
-        {
-            throw new ArgumentException(
-                $"Phone number is too long, maximum phone number length is {MaxPhoneNumberLength} characters long.",
-                nameof(phoneNumber));
-        }
-    }
-    
     public BorrowerDto ToDto()
     {
         return new BorrowerDto
