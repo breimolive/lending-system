@@ -26,18 +26,7 @@ public class CategoryEntity
         Id = Guid.NewGuid();
         Name = name;
     }
-
-    public void UpdateName(string name)
-    {
-        if (name.Length > MaxNameLength)
-        {
-            throw new ArgumentException($"Name is too long, maximum name length is {MaxNameLength} characters long.",
-                nameof(name));
-        }
-
-        Name = name;
-    }
-
+    
     public CategoryDto ToDto()
     {
         return new CategoryDto
