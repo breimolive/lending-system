@@ -13,7 +13,7 @@
       </div>
       <div class="dialog-body">
         <h3>Contact form</h3>
-        <p>Fill out the contact form below to loan your equipment.</p>
+        <p>Fill out the contact form below to loan the equipment.</p>
 
         <div class="informative-text">
           <span>Already have an account? Enter your email address and we'll automatically fill in your details.</span>
@@ -118,7 +118,7 @@
               && (borrowerForm.get('email')?.touched)) ? 'reg-email-error' : null"
             >
             @if (borrowerForm.get('email')?.errors?.['required'] &&
-            borrowerForm.get('email')?.touched || borrowerForm.get('email')?.hasError('required')) {
+            borrowerForm.get('email')?.touched) {
               <div role="alert" aria-live="assertive" class="input-invalid">
                 <p class="text-body" id="reg-email-required-error">Email is required.</p>
               </div>
@@ -200,7 +200,7 @@
                 <button (click)="dueDate = '14'">14 days</button>
                 <button (click)="dueDate = '1'">1 month</button>
               </div>
-              @if (!dueDate) {
+              @if (!dueDate && loanForm.get('dueDate')?.touched) {
               @if (loanForm.get('dueDate')?.errors?.['required'] &&
               loanForm.get('dueDate')?.touched || loanForm.get('dueDate')?.hasError('required')) {
                 <div role="alert" aria-live="assertive" class="input-invalid">
