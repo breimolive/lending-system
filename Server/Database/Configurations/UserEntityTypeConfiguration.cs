@@ -30,10 +30,6 @@ public class UserEntityTypeConfiguration: IEntityTypeConfiguration<UserEntity>
             .HasMaxLength(UserEntity.MaxPasswordHashLength)
             .IsRequired();
 
-        builder.Property(e => e.PasswordSalt)
-            .HasMaxLength(UserEntity.MaxPasswordSaltLength)
-            .IsRequired();
-
         builder
             .HasIndex(x => x.Email)
             .IsUnique();

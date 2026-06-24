@@ -8,8 +8,8 @@ public class UserEntitySeed
     {
         return
         [
-            new UserEntity("Heine Breimo", "heine.breimo@gmail.com", "123lol123", "XQxEV5vjtVczA3NZQlqHc"),
-            new UserEntity("Test User", "test@gmail.com", "123lol123", "XQxEV5vjtVczA3NZQlqHc")
+            new UserEntity("Heine Breimo", "heine.breimo@gmail.com", "123lol123"),
+            new UserEntity("Test User", "test@gmail.com", "123lol123")
         ];
     }
 }
