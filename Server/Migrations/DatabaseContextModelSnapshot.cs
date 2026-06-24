@@ -206,11 +206,6 @@ namespace Server.Migrations
                         .HasMaxLength(70)
                         .HasColumnType("nvarchar(70)");
 
-                    b.Property<string>("PasswordSalt")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("Email")

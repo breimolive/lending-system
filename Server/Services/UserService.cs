@@ -9,12 +9,10 @@ namespace Server.Services;
 public class UserService
 {
     private readonly DatabaseContext _context;
-    private readonly string _pepper;
 
-    public UserService(DatabaseContext context, IConfiguration configuration)
+    public UserService(DatabaseContext context)
     {
         _context = context;
-        _pepper = configuration["DatabasePepper"] ?? throw new ArgumentNullException("DatabasePepper");
     }
 
     public async Task<UserDto> Login(UserLoginDto request)
@@ -25,7 +23,7 @@ public class UserService
             throw new NotFoundException("User not found");
         }
 
-        return !user.ComparePassword(request.Password, _pepper)
+        return !user.ComparePassword(request.Password, user.PasswordHash)
             ? throw new UnauthorizedException("Invalid password")
             : user.ToDto();
     }

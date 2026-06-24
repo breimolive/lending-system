@@ -1,5 +1,3 @@
-using System.Security.Cryptography;
-using System.Text;
 using Server.Models;
 
 namespace Server.Database.Entities;
@@ -21,7 +19,6 @@ public class UserEntity
     public string Email { get; protected set; }
     public string FullName { get; protected set; }
     public string PasswordHash { get; protected set; }
-    public string PasswordSalt { get; protected set; }
     public DateTime CreatedAt { get; protected set; }
 
 #pragma warning disable CS8618
@@ -30,44 +27,23 @@ public class UserEntity
     }
 #pragma warning restore CS8618
 
-    public UserEntity(string fullName, string email, string password, string pepper)
+    public UserEntity(string fullName, string email, string password)
     {
         Id = Guid.NewGuid();
         FullName = fullName;
-        PasswordSalt = GenerateSalt();
-        PasswordHash = Convert.ToBase64String(HashPassword(password, PasswordSalt, pepper));
+        PasswordHash = HashPassword(password);
         Email = email;
         CreatedAt = DateTime.Now;
     }
 
-    public bool ComparePassword(string password, string pepper)
+    public bool ComparePassword(string password, string storedPassword)
     {
-        var hashBytes = Convert.FromBase64String(PasswordHash);
-        var tempHash = HashPassword(password, PasswordSalt, pepper);
-        return CryptographicOperations.FixedTimeEquals(hashBytes.AsSpan(), tempHash.AsSpan());
+       return BCrypt.Net.BCrypt.Verify(password, storedPassword);
     }
 
-    private static string GenerateSalt()
+    private static string HashPassword(string password)
     {
-        var bytes = new byte[16];
-        RandomNumberGenerator.Fill(bytes.AsSpan());
-        return Convert.ToBase64String(bytes);
-    }
-
-    private static byte[] HashPassword(string password, string salt, string pepper)
-    {
-        using var digest = SHA256.Create();
-
-       var pepperBytes = Encoding.UTF8.GetBytes(pepper);
-        digest.TransformBlock(pepperBytes, 0, pepperBytes.Length, null, 0);
-
-        var saltBytes = Encoding.UTF8.GetBytes(salt);
-        digest.TransformBlock(saltBytes, 0, saltBytes.Length, null, 0);
-
-        var passwordBytes = Encoding.UTF8.GetBytes(password);
-        digest.TransformFinalBlock(passwordBytes, 0, passwordBytes.Length);
-
-        return digest.Hash!;
+        return BCrypt.Net.BCrypt.HashPassword(password, 13);
     }
     
     public UserDto ToDto()
