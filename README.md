@@ -126,4 +126,5 @@ secondary test account
 ![Vocational qualifcation origin exam text (PDF)](docs/Fag-svenneprøve%20%20–%20Heine%20Breimo.pdf)
 
 ## Result
+passed with distinction
 ![Exam result](docs/vigo.png)
