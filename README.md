@@ -117,3 +117,11 @@ To login to the application, use the following credentials:
 secondary test account
 - Email: `test@gmail.com`
 - Password: `123lol123`
+
+# Vocational qualification exam
+## Documentation
+**Vocational qualification exam text (Relevant to the application) (EN)**
+**Vocational qualification exam (from Nordland fylke) (NO)**
+
+## Result
+
