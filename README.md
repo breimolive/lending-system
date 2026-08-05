@@ -13,25 +13,25 @@ Lending System provides a centralized platform for tracking items that have been
 
 ## Why was it Created?
 This project was developed as a capstone exercise for a vocational qualification exam. It showcases essential competencies in full-stack web development, including:
-• User authentication and authorization
-• Database design and management
-• RESTful API development
-• Modern frontend frameworks and responsive design
-• Cross-layer application architecture
+- User authentication and authorization
+- Database design and management
+- RESTful API development
+- Modern frontend frameworks and responsive design
+- Cross-layer application architecture
 
 ## Target Users
 Lending System is designed for:
-• Organizations and Teams that regularly loan equipment or resources to employees or clients
-• Educational Institutions managing lab equipment, tools, or learning materials
-• Equipment Rental Services needing lightweight, accessible management solutions
-• Community Groups tracking shared resources among members
+- Organizations and Teams that regularly loan equipment or resources to employees or clients
+- Educational Institutions managing lab equipment, tools, or learning materials
+- Equipment Rental Services needing lightweight, accessible management solutions
+- Community Groups tracking shared resources among members
 
 ## Key Features
-• User Authentication: Secure login system with role-based access control
-• Equipment Management: Create, edit, and delete inventory items with detailed descriptions
-• Loan Tracking: Monitor borrowed items, borrower details, and loan status in real-time
-• Responsive Design: Seamless experience across desktop, tablet, and mobile devices
-• Multi-User Support: Different user accounts with independent inventory management
+- User Authentication: Secure login system with role-based access control
+- Equipment Management: Create, edit, and delete inventory items with detailed descriptions
+- Loan Tracking: Monitor borrowed items, borrower details, and loan status in real-time
+- Responsive Design: Seamless experience across desktop, tablet, and mobile devices
+- Multi-User Support: Different user accounts with independent inventory management
 
 # Refactor Overview
 ## Why the Refactor?
