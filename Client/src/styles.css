@@ -98,7 +98,7 @@ input, button {
 
     .text-body, .text-body-bold {
 
-      --geist-space-4x: 16px;
+      --geist-space-4x: 1rem;
 
       font-size: var(--geist-space-4x);
       letter-spacing: .009em;
