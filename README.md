@@ -121,7 +121,9 @@ secondary test account
 # Vocational qualification exam
 ## Documentation
 **Vocational qualification exam text (Relevant to the application) (EN)**
+![Vocational qualifcation exam text (PDF)](docs/vocational-qualification-exam-2026.pdf)
 **Vocational qualification exam (from Nordland fylke) (NO)**
+![Vocational qualifcation origin exam text (PDF)](docs/Fag-svenneprøve%20%20–%20Heine%20Breimo.pdf)
 
 ## Result
-
+![Exam result](docs/vigo.png)
