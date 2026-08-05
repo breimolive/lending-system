@@ -30,16 +30,41 @@ Lending System is designed for:
 - User Authentication: Secure login system with role-based access control
 - Equipment Management: Create, edit, and delete inventory items with detailed descriptions
 - Loan Tracking: Monitor borrowed items, borrower details, and loan status in real-time
-- Responsive Design: Seamless experience across desktop, tablet, and mobile devices
 - Multi-User Support: Different user accounts with independent inventory management
 
 # Refactor Overview
-## Why the Refactor?
+## Motivation
+While Lending System successfully fulfilled its original purpose as a vocational exam project, it represents an opportunity for continuous improvement and professional growth. Rather than moving on to a new project, I've chosen to use this application as a foundation for mastering full-stack development practices, design principles, and modern technologies. This refactor transforms the project into a reference implementation a portfolio piece that demonstrates not just initial development capabilities, but the discipline and foresight to maintain, improve, and evolve a codebase over time.
 
-## Architecture
+## Key Changes
+The refactoring initiative encompasses several strategic improvements:
+
+**Architecture & Technology Stack**
+- Framework Upgrades: Migrating from Angular 20 to Angular 22 and .NET 8 to .NET 10 to leverage the latest language features, performance improvements, and security patches
+- Deprecation Management: Proactively addressing the November 10, 2026 end-of-life date for .NET 8, ensuring the application remains secure and supported
+- Code Standardization: Refactoring methods and architectural patterns to follow industry best practices, improving maintainability and scalability
+
+**User Experience & Design**
+- Design System: Creating a comprehensive Figma workflow to establish consistent, standardized UI patterns across all pages
+- Enhanced User Workflows: Redesigning core interactions (borrowing, returning, managing equipment) based on usability principles
+- Responsive Excellence: Ensuring a seamless, polished experience across all device sizes and scenarios
+
+**Feature Expansion**
+- Integrating lessons learned from previous CRUD applications
+- Adding functionality that provides genuine value while maintaining simplicity
+- Building a solid foundation for future enhancements
+
+## Key Learnings
+This refactoring journey has reinforced several important lessons:
+1. Continuous Improvement is Essential: Investing time in redesign and thoughtful refactoring yields applications that are more maintainable, scalable, and professional
+2. Design-First Development: Spending time in Figma before coding saves time and produces more cohesive products
+3. Technical Debt Management: Staying current with framework versions and dependencies is an ongoing responsibility, not an afterthought
+4. Rewarding Discipline: While refactoring requires significant effort and focus, the satisfaction of transforming a project into something genuinely excellent provides strong motivation for continuous growth as a developer
+
+# Architecture
 built with an **Angular 20** frontend and a **.NET 8** backend, this application provides a seamless experience for a lending system. The frontend is designed to be user-friendly and responsive, while the backend is robust and efficient, ensuring smooth data handling and operations.
 
-### Project structure
+## Project structure
 | Path                      | Description                                                     |
 |---------------------------|-----------------------------------------------------------------|
 | `Client/`                 | Angular 20 SPA (TypeScript, HTML, CSS)                          |
