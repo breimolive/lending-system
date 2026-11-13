@@ -127,13 +127,13 @@ Tid brukt for denne delaktiveten er på rundt 1 time.
 
 - Opprettet en tabell for endepunkt som inneholder;
 
-  - hvilket endepunkt,
+  - hvilket endepunkt
 
-  - beskrivelse,
+  - beskrivelse
 
   - hvordan HTTP-type endepunktet er
 
-  - tidsestimat for det endepunktet.
+  - tidsestimat for det endepunktet
 
 - Opprettet en tabell for sider som angir sidetall, en beskrivelse og et
   tidsestimat for siden.
