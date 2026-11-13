@@ -13,25 +13,25 @@ title: Dokumentasjon av prøvearbeidet
 
 #### Hva ble gjort
 
-- Definerte kravene til tabellene.
+- Definerte kravene til tabellene
 
 - Definerte relasjoner mellom Equipment, Category, Loan, Borrower og
-  User for å støtte registrering av utlån, historikk og tilgangsstyring.
+  User for å støtte registrering av utlån, historikk og tilgangsstyring
 
-- Opprettet tabellene User, Equipment, Category, Borrower og Loan.
+- Opprettet tabellene User, Equipment, Category, Borrower og Loan
 
 #### Hvordan ble arbeidet utført
 
 - Opprettet et nytt «utlånssystem» sitt databasediagram ved hjelp av
-  [dbdiagram](https://dbdiagram.io/).
+  [dbdiagram](https://dbdiagram.io/)
 
 - Opprettet tabellene basert på de funksjonelle kravene i oppgaven.
   Spesielt ble det lagt vekt på kravene til utstyrshåndtering,
   utlånshistorikk og autentisering. Konfigurerte relasjoner mellom
-  tabellene i diagrammet ved hjelp av kravene.
+  tabellene i diagrammet ved hjelp av kravene
 
 - Opprettet spesifikasjoner rundt hver rad i tabellen (nullable, primære
-  nøkkel osv.)
+  nøkkel osv)
 
 #### Dokumentasjon
 
@@ -52,31 +52,31 @@ utarbeidet og er derfor ikke sammenlignet mot planen.
 
 ##### Hva ble gjort
 
-- Definerte hvilke verktøy som skulle benyttes i utviklingsprosessen.
+- Definerte hvilke verktøy som skulle benyttes i utviklingsprosessen
 
 - Valgte programmeringsspråk som skulle brukes til frontend- og
-  backendutvikling.
+  backendutvikling
 
 - Valgte relevante rammeverk og biblioteker for å støtte utviklingen av
-  løsningen.
+  løsningen
 
 - Begrunnet valgene basert på kravene i oppgaven og egen erfaring med
-  teknologiene.
+  teknologiene
 
 ##### Hvordan ble arbeidet utført
 
 - Vurderte hvilke verktøy som var nødvendige for å utvikle, teste og
-  dokumentere løsningen.
+  dokumentere løsningen
 
-- Sammenlignet aktuelle teknologier opp mot kravene i oppgaven.
+- Sammenlignet aktuelle teknologier opp mot kravene i oppgaven
 
 - Vurderte egne erfaringer med teknologiene for å sikre effektiv
-  utvikling innenfor tidsrammen.
+  utvikling innenfor tidsrammen
 
 - Valgte teknologier som støtter en tydelig separasjon mellom frontend,
   backend og database.
 
-- Dokumenterte valgene og begrunnelsene i planleggingsdokumentet.
+- Dokumenterte valgene og begrunnelsene i planleggingsdokumentet
 
 ##### Kommentar
 
@@ -91,23 +91,23 @@ Tid brukt for denne delaktiveten er på rundt 1 time.
 
 ##### Hva ble gjort
 
-- Presenterte frem databasediagrammet mitt.
+- Presenterte frem databasediagrammet mitt
 
-- Definerte databaserelasjonene til diagrammet.
+- Definerte databaserelasjonene til diagrammet
 
 - Definerte valgene jeg tok gjennom struktureringen av
-  databasediagrammet.
+  databasediagrammet
 
 ##### Hvordan ble arbeidet utført
 
-- Presenterte databasediagramet mitt som et bilde.
+- Presenterte databasediagramet mitt som et bilde
 
 - Definerte databaserelasjoner mellom Equipment, Loan, Category, User og
-  Borrower I enkel tekst for lesere som ikke er vant til ER-Diagrammer.
+  Borrower I enkel tekst for lesere som ikke er vant til ER-Diagrammer
 
 - Definerte database valgene mine med en tabell over valgene og deres
   begrunnelser for hvorfor jeg tok de valgene over andre mer
-  standardiserte valg.
+  standardiserte valg
 
 ##### Kommentar
 
@@ -123,9 +123,9 @@ Tid brukt for denne delaktiveten er på rundt 1 time.
 ##### Hva ble gjort
 
 - Opprettet seksjon for endepunkt, sider og et generelt tidsestimat for
-  fremdriftsplanen.
+  fremdriftsplanen
 
-- Opprettet en tabell for endepunkt som inneholder;
+- Opprettet en tabell for endepunkt som inneholder:
 
   - hvilket endepunkt
 
@@ -136,22 +136,22 @@ Tid brukt for denne delaktiveten er på rundt 1 time.
   - tidsestimat for det endepunktet
 
 - Opprettet en tabell for sider som angir sidetall, en beskrivelse og et
-  tidsestimat for siden.
+  tidsestimat for siden
 
 ##### Hvordan ble arbeidet utført
 
 - Identifiserte hvilke API-endepunkter som var nødvendige for å oppfylle
-  kravene i oppgaven.
+  kravene i oppgaven
 
 - Kartla hvilke sider og brukergrensesnitt som var nødvendige basert på
-  kravene og valgt løsningsdesign.
+  kravene og valgt løsningsdesign
 
 - Identifiserte behov for DTO-er, hjelpemetoder og andre
-  støttestrukturer som måtte implementeres senere i utviklingsfasen.
+  støttestrukturer som måtte implementeres senere i utviklingsfasen
 
-- Definerte endepunktene og tidsbruk for sidene.
+- Definerte endepunktene og tidsbruk for sidene
 
-- Regnet ut fremdriftsplanen sitt tidsestimat.
+- Regnet ut fremdriftsplanen sitt tidsestimat
 
 ##### kommentar
 
@@ -167,26 +167,26 @@ Tid brukt for denne delaktiveten er på rundt 2 timer.
 ##### Hva ble gjort
 
 - Opprettet en innledning som beskriver hensikten med å vurdere
-  alternative løsninger.
+  alternative løsninger
 
 - Utarbeidet en alternativ løsning der applikasjonen utvikles med Razor
-  Pages i stedet for Angular.
+  Pages i stedet for Angular
 
 - Vurderte hvordan den alternative løsningen ville påvirket
-  utviklingsprosessen og den ferdige applikasjonen.
+  utviklingsprosessen og den ferdige applikasjonen
 
 ##### Hvordan ble arbeidet utført
 
 - Identifiserte alternative teknologier som kunne oppfylle kravene i
-  oppgaven.
+  oppgaven
 
 - Vurderte hvordan brukergrensesnitt, backend og arbeidsflyt ville blitt
-  påvirket av å benytte Razor Pages.
+  påvirket av å benytte Razor Pages
 
-- Sammenlignet fordeler og ulemper ved Razor Pages opp mot Angular.
+- Sammenlignet fordeler og ulemper ved Razor Pages opp mot Angular
 
 - Reflekterte over hvordan tidligere erfaringer med Angular påvirket
-  teknologivalget.
+  teknologivalget
 
 ##### Kommentar
 
@@ -201,26 +201,26 @@ Tid brukt for denne delaktiveten er på rundt 30 minutter.
 
 ##### Hva ble gjort
 
-- Vurderte hvordan personopplysninger skulle behandles i applikasjonen.
+- Vurderte hvordan personopplysninger skulle behandles i applikasjonen
 
-- Definerte hvilke personopplysninger som er nødvendige å lagre.
+- Definerte hvilke personopplysninger som er nødvendige å lagre
 
 - Beskrev formålet med lagringen og hvordan opplysningene brukes i
-  systemet.
+  systemet
 
-- Utarbeidet en begrunnelse for hvorfor opplysningene lagres.
+- Utarbeidet en begrunnelse for hvorfor opplysningene lagres
 
 ##### Hvordan ble arbeidet utført
 
 - Tok utgangspunkt i GDPR-prinsippene om dataminimering og
-  formålsbegrensning.
+  formålsbegrensning
 
 - Identifiserte hvilke data som er nødvendige for autentisering,
-  utlånshistorikk og sporbarhet.
+  utlånshistorikk og sporbarhet
 
-- Vurderte hvordan informasjonen kunne lagres på en sikker måte.
+- Vurderte hvordan informasjonen kunne lagres på en sikker måte
 
-- Dokumenterte vurderingene i planleggingsdokumentet.
+- Dokumenterte vurderingene i planleggingsdokumentet
 
 ##### Kommentar
 
@@ -235,26 +235,26 @@ Tid brukt for denne delaktiveten er på rundt 1 time.
 
 ##### Hva ble gjort
 
-- Vurderte relevante HMS-tiltak for gjennomføring av fagprøven.
+- Vurderte relevante HMS-tiltak for gjennomføring av fagprøven
 
 - Identifiserte arbeidsvaner og tiltak som kan redusere risikoen for
-  belastningsskader ved langvarig arbeid foran datamaskin.
+  belastningsskader ved langvarig arbeid foran datamaskin
 
 - Utarbeidet en strategi for å opprettholde et godt arbeidsmiljø gjennom
-  prøveperioden.
+  prøveperioden
 
 ##### Hvordan ble arbeidet utført
 
 - Tok utgangspunkt i erfaringer fra tidligere utviklingsprosjekter og
-  skoleoppgaver.
+  skoleoppgaver
 
 - Identifiserte faktorer som kan påvirke helse, trivsel og produktivitet
-  under utviklingsarbeidet.
+  under utviklingsarbeidet
 
 - Vurderte tiltak som regelmessige pauser, ergonomisk arbeidsstilling,
-  variasjon i arbeidsoppgaver og god planlegging av arbeidsdagen.
+  variasjon i arbeidsoppgaver og god planlegging av arbeidsdagen
 
-- Dokumenterte hvilke HMS-tiltak som skal følges gjennom prøvearbeidet.
+- Dokumenterte hvilke HMS-tiltak som skal følges gjennom prøvearbeidet
 
 ##### kommentar
 
@@ -270,7 +270,7 @@ Tid brukt for denne delaktiveten er på rundt 4 timer.
 ##### Hva ble gjort
 
 - Definerte hvilke former av hjelpemidler jeg blir å utnytte gjennom
-  dokumentasjon og kode-delen av oppgaven.
+  dokumentasjon og kode-delen av oppgaven
 
 - Etablert hvilke typer AI-modeller jeg vil bruke gjennom begge delene
   av oppgaven
@@ -278,17 +278,17 @@ Tid brukt for denne delaktiveten er på rundt 4 timer.
 - Identifisert bruk av tidligere oppgaver som kan gi meg en ferdigstilt
   Angular applikasjon med kobling til et backend med dotnet og MSSQL,
   andre minifagprøver der jeg har tilgang til simuler logikk og
-  komponenter.
+  komponenter
 
 ##### Hvordan ble arbeidet utført
 
 - Identifiser hvorfor og hvordan jeg blir å bruke disse hjelpemidlene
   på, her brukte jeg mye tid for å reflektere og se gjennom tidligere
   bruk for å skape en realistisk liste over hjelpemidler og hvor dem
-  blir implementer/brukt.
+  blir implementer/brukt
 
 - Opprette klare bruke senarioer for hvilken AI-verktøy å modeller som
-  blir brukt.
+  blir brukt
 
 ##### kommentar
 
@@ -304,30 +304,30 @@ Tid brukt for denne delaktiveten er på rundt 40 minutter.
 ##### Hva ble gjort
 
 - Opprettet skisser for applikasjonens sider basert på kravene i
-  oppgaven og ønsket UI/UX-design.
+  oppgaven og ønsket UI/UX-design
 
 - Opprettet skisser for sentrale komponenter som kortvisning av utstyr
   og dialogvinduer for opprettelse, redigering, sletting, utlån og
-  innlevering av utstyr.
+  innlevering av utstyr
 
 ##### Hvordan ble arbeidet utført
 
 - Identifiserte hvilke sider og komponenter som måtte utvikles for å
-  oppfylle kravene i oppgaven.
+  oppfylle kravene i oppgaven
 
 - Tok utgangspunkt i fremdriftsplanen og erfaringer fra tidligere
-  prosjekter og minifagprøver for å utforme en hensiktsmessig struktur.
+  prosjekter og minifagprøver for å utforme en hensiktsmessig struktur
 
 - Utarbeidet skisser for:
 
   - Utstyrssiden med filtrering, sortering, listevisning og opprettelse
-    av nytt utstyr.
+    av nytt utstyr
 
   - Detaljsiden for utstyr med informasjon, historikk og tilgjengelige
-    handlinger.
+    handlinger
 
   - Dialogvinduer for opprettelse, redigering, sletting, utlån og
-    innlevering av utstyr.
+    innlevering av utstyr
 
 - Benyttet [Excalidraw](https://excalidraw.com/) til å utforme skissene.
 
@@ -336,32 +336,32 @@ Tid brukt for denne delaktiveten er på rundt 40 minutter.
 - **Arbeidet samsvarte med planleggingsdelen:**
 
 - Samtlige komponenter — fra hovedsiden med utstyrsliste til de
-  spesifikke dialogene for
+  spesifikke dialogene for:
 
-  - opprettelse,
+  - opprettelse
 
-  - endring,
+  - endring
 
   - sletting
 
   - utlån
 
-- er visuelt utarbeidet i full overensstemmelse med kravene i planen.
+- er visuelt utarbeidet i full overensstemmelse med kravene i planen
 
 - **Logikk og validering ivaretatt:**
 
   - Skissene reflekterer den planlagte funksjonaliteten med Angular
-    FormBuilder.
+    FormBuilder
 
-  - Tydelig merking av obligatoriske felter (\*).
+  - Tydelig merking av obligatoriske felter (\*)
 
-  - bekreftelsestrinnet for sletting.
+  - bekreftelsestrinnet for sletting
 
 - **Ingen endringer nødvendig:**
 
   - Det er et direkte og nøyaktig samsvar mellom de estimerte oppgavene
     og de ferdige skissene, og arbeidet kan fortsette uten justeringer i
-    den opprinnelige planen.
+    den opprinnelige planen
 
 #### Tidsestimat
 
@@ -380,20 +380,20 @@ utlånssystemet.
 #### Hva ble gjort
 
 - Opprettet prosjektstrukturen ved hjelp av en ferdig .NET- og
-  Angular-mal.
+  Angular-mal
 
 - Konfigurerte backend med nødvendige innstillinger for utvikling og
-  kjøring av applikasjonen.
+  kjøring av applikasjonen
 
 - Opprettet databaseoppsett ved hjelp av Entity Framework Core og
-  genererte den første migreringen.
+  genererte den første migreringen
 
-- Implementerte grunnleggende API-funksjonalitet for brukerhåndtering.
+- Implementerte grunnleggende API-funksjonalitet for brukerhåndtering
 
 - Konfigurerte Angular-prosjektet med nødvendig struktur, ruting og
-  kommunikasjon mot backend.
+  kommunikasjon mot backend
 
-- Opprettet grunnleggende sider for;
+- Opprettet grunnleggende sider for:
 
   - Innlogging
 
@@ -401,41 +401,41 @@ utlånssystemet.
 
   - privat område
 
-  - feilhåndtering.
+  - feilhåndtering
 
-- La til dokumentasjon og arkitekturillustrasjoner i prosjektet.
+- La til dokumentasjon og arkitekturillustrasjoner i prosjektet
 
 #### Hvordan ble arbeidet utført
 
 - Tok utgangspunkt i en etablert .NET- og Angular-mal for å redusere
-  oppstartstiden og sikre en konsistent prosjektstruktur.
+  oppstartstiden og sikre en konsistent prosjektstruktur
 
 - Organiserte prosjektet i separate områder for frontend og backend for
-  å holde ansvarsområdene adskilt.
+  å holde ansvarsområdene adskilt
 
-- Konfigurerte database og ORM ved hjelp av Entity Framework Core.
+- Konfigurerte database og ORM ved hjelp av Entity Framework Core
 
 - Etablerte kommunikasjon mellom frontend og backend ved hjelp av
-  API-tjenester og proxy-konfigurasjon.
+  API-tjenester og proxy-konfigurasjon
 
 - Tilpasset og videreutviklet eksisterende komponenter og sider fra
-  malen til prosjektets behov.
+  malen til prosjektets behov
 
 - Klargjorde utviklingsmiljøet med nødvendige konfigurasjoner for videre
-  utvikling.
+  utvikling
 
 #### Resultat
 
-- Et fungerende grunnlag for utvikling av utlånssystemet ble etablert.
+- Et fungerende grunnlag for utvikling av utlånssystemet ble etablert
 
 - Frontend, backend og database ble koblet sammen og klargjort for
-  videre utvikling.
+  videre utvikling
 
 - Grunnleggende autentiserings- og navigasjonsstruktur ble tilgjengelig
-  i applikasjonen.
+  i applikasjonen
 
 - Prosjektet var klart for implementering av funksjonalitet knyttet til
-  utstyr, utlån og historikk.
+  utstyr, utlån og historikk
 
 #### Dokumentasjon
 
@@ -468,12 +468,12 @@ og seeding for testdata.
 
 ##### Hva ble gjort
 
-- Opprettet seperasjon mellom entitetene og deres konfigurasjoner.
+- Opprettet seperasjon mellom entitetene og deres konfigurasjoner
 
 - Opprettet seeding for entitetene slikt at jeg og sensorene kan teste
-  funksjonaliteten min.
+  funksjonaliteten min
 
-- Opprettet enheter og konfigurasjon for;
+- Opprettet enheter og konfigurasjon for:
 
   - Brukere
 
@@ -483,15 +483,15 @@ og seeding for testdata.
 
   - Kategori
 
-  - lån.
+  - lån
 
 - Implementerte database-seeding-fil for å seede test-dataen min inn i
-  databasen.
+  databasen
 
 - Opprettet bruker-, utstyr- og låneservice for å håndtere alt fra enkel
-  datainnsamling til mer avansert forretningslogikk.
+  datainnsamling til mer avansert forretningslogikk
 
-- Implementerte egendefinerte unntak for;
+- Implementerte egendefinerte unntak for:
 
   - dårlig forespørsel (400)
 
@@ -501,65 +501,65 @@ og seeding for testdata.
 
   - konflikt (409)
 
-  - forbudt (403).
+  - forbudt (403)
 
-- Opprettet en ny EF Core migrering basert på de nye entitetene.
+- Opprettet en ny EF Core migrering basert på de nye entitetene
 
-- Implementere utstyr og lånekontrollere.
+- Implementere utstyr og lånekontrollere
 
 ##### Hvordan ble arbeidet utført
 
 - Definerte databaseoppsettet basert på enheter og konfigurasjonsfiler
-  for å forbedre struktur og lesbarhet i prosjektet.
+  for å forbedre struktur og lesbarhet i prosjektet
 
 - Etablerte hvordan enheter og konfigurasjon skulle struktureres basert
-  på krav og databasepreferanser.
+  på krav og databasepreferanser
 
 - Opprettet seeding-filer for entitetene, samt en egen fil for å laste
-  disse inn i databasen.
+  disse inn i databasen
 
 - Definerte hvor mange services som var nødvendig basert på antall
   enheter og ønsket oppdeling av logikk. Her valgte jeg én samlet
   brukerservice (for både brukere og låntakere), samt separate services
-  for utstyr og lån.
+  for utstyr og lån
 
 - Etablerte egendefinerte unntak for å gi tydelige feilmeldinger til
-  utviklere og brukere som bruker systemet til feilsøking.
+  utviklere og brukere som bruker systemet til feilsøking
 
 - Opprettet en ny migrering via EF Core-migrasjonssteg. -\> [Migrations
-  Overview](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli).
+  Overview](https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli)
 
 - Opprettet utstyrs- og lånekontrollere med feilsjekker før man lar dem
-  snakke med utstyret og låneservicene.
+  snakke med utstyret og låneservicene
 
 ##### Resultat
 
 - Databasestrukturen ble reorganisert og gjort mer modulær og
-  oversiktlig.
+  oversiktlig
 
 - En tydelig separasjon mellom enheter og konfigurasjon ble etablert,
-  noe som øker vedlikeholdbarheten.
+  noe som øker vedlikeholdbarheten
 
 - Seeding ble implementert, som gjør det mulig å fylle databasen med
   testdata for enklere testing og feilsøking.
 
 - Prosjektet fikk en mer strukturert service-lagdeling som skiller
-  forretningslogikk fra datatilgang.
+  forretningslogikk fra datatilgang
 
 - Bruker-, utstyr- og låneservices ble etablert for å håndtere ulike
-  deler av systemets logikk.
+  deler av systemets logikk
 
 - Egendefinerte unntak ble implementert for bedre og mer presis
-  feilhåndtering (400, 401, 403, 404, 409). \<
+  feilhåndtering (400, 401, 403, 404, 409) \<
 
 - En ny EF Core-migrering ble opprettet basert på den oppdaterte
-  datamodellen.
+  datamodellen
 
 - Systemet ble totalt sett mer robust, skalerbart og enklere å
-  videreutvikle.
+  videreutvikle
 
 - Prosjektet fikk kontrollere for som frontend api-et kan snakke med for
-  å kjøre bruker- utstyr- og låneservicene.
+  å kjøre bruker- utstyr- og låneservicene
 
 ##### Dokumentasjon
 
@@ -599,79 +599,79 @@ seed-dataen, kontrollere og servicene til entitetene.
 ##### Hva ble gjort
 
 - Endret mappestrukturen i database-delen av backend til å inneholde
-  separate mapper for enheter, konfigurasjoner og seed-data.
+  separate mapper for enheter, konfigurasjoner og seed-data
 
 - Endret DatabaseContext for å inkludere de ny implementerte entitetene
-  i applikasjonen.
+  i applikasjonen
 
 - Modifiserte bruker-kontrolleren til å bruke nye metoder fra
   service-laget og spesiallagde DTO-er for trygg og kontrollert
-  dataoverføring.
+  dataoverføring
 
 - Modifiserte utstyrs-enheten til å inkludere indekser for navn og
-  status, som senere brukes til filtrering i applikasjonen.
+  status, som senere brukes til filtrering i applikasjonen
 
 - Modifiserte lånekontrolleren for å rette opp attributtfeil i
-  parameterne i metodene.
+  parameterne i metodene
 
 - Endret Program-filen til å inkludere database av seeding som en del av
-  avhengighetsinjeksjonen.
+  avhengighetsinjeksjonen
 
 - Endret utstyrs- og låneservicene, hovedsakelig med fokus på
-  forretningslogikk og feilhåndtering.
+  forretningslogikk og feilhåndtering
 
 ##### Hvordan ble arbeidet utført
 
 - Mappestrukturen ble endret som en standardisert segmenteringsstrategi
   for bedre klarhet og vedlikeholdbarhet. Database-mappen ble delt i tre
-  deler: enheter, konfigurasjoner og seeding-data.
+  deler: enheter, konfigurasjoner og seeding-data
 
 - De nye entitetene ble definert i DatabaseContext for å sikre at de
-  blir inkludert ved ny migrering.
+  blir inkludert ved ny migrering
 
 - Logikken ble flyttet fra bruker-kontrolleren til service-laget for å
   unngå at forretningslogikk eksponeres i kontrolleren, noe som følger
-  standard praksis for separasjon av ansvar.
+  standard praksis for separasjon av ansvar
 
 - Indekser for navn og status ble etablert i utstyrs-konfigurasjonen for
-  å gjøre søk og filtrering mer effektive og mindre ressurskrevende.
+  å gjøre søk og filtrering mer effektive og mindre ressurskrevende
 
 - Feil i attributter ble rettet i utstyrs- og låneservicene, der blant
   annet feil bruk av \[FromRoute\] i stedet for \[FromBody\] ble
   korrigert. Dette sikrer riktig datainnsamling og reduserer risiko for
-  feil ved input-håndtering.
+  feil ved input-håndtering
 
 - Program-filen ble oppdatert for å registrere database av seeding som
-  en del av dependency injection-oppsettet.
+  en del av dependency injection-oppsettet
 
 - Metodene for «hent og endre utstyr» i utstyrsservicen ble oppdatert
-  for å inkludere nødvendige metadata for riktige spørringer.
+  for å inkludere nødvendige metadata for riktige spørringer
 
 - Metodene for «få alle», «få én» og «opprett lån» i låneservicen ble
   oppdatert for å sikre korrekt håndtering av relaterte enheter og
-  metadata.
+  metadata
 
 ##### Resultat
 
 - Mappestrukturen ble mer modulær og oversiktlig, noe som gir bedre
   vedlikeholdbarhet. Datakonfigurasjon, enheter og seeding ble tydelig
-  separert, som forbedrer arkitekturen i prosjektet.
+  separert, som forbedrer arkitekturen i prosjektet
 
 - DatabaseContext ble oppdatert slik at alle nye enheter inngår korrekt
   i databasen ved migrering. Service-laget ble forbedret ved å flytte
   forretningslogikk ut av kontrollerne, noe som gir bedre separasjon av
-  ansvar.
+  ansvar
 
 - Indekser på utstyr gjør filtrering og søk på navn og status mer
-  effektivt.
+  effektivt
 
 - Feilhåndtering og input-validering ble forbedret gjennom korrigering
-  av feil i kontroller-attributter.
+  av feil i kontroller-attributter
 
-- Seeding er nå integrert i applikasjonsoppstart via Program-filen.
+- Seeding er nå integrert i applikasjonsoppstart via Program-filen
 
 - Utstyrs- og låneservicene ble mer stabile og konsistente etter
-  forbedringer i forretningslogikk og spørringer.
+  forbedringer i forretningslogikk og spørringer
 
 ##### Dokumentasjon
 
@@ -711,14 +711,14 @@ koblet til oppgaven.
 ##### Hva ble gjort
 
 - Fjernet komponentene for registrering og private områder fra
-  malprosjektet.
+  malprosjektet
 
-- Fjernet den beskyttede eksempelkontrolleren fra malprosjektet.
+- Fjernet den beskyttede eksempelkontrolleren fra malprosjektet
 
-- Fjernet eldre migrering av databasen.
+- Fjernet eldre migrering av databasen
 
 - Oppdaterte rutingen i applikasjonen etter fjerning av disse
-  komponentene.
+  komponentene
 
 ##### Hvordan ble arbeidet utført
 
@@ -729,7 +729,7 @@ koblet til oppgaven.
 ##### Resultat
 
 - Ryddet opp i komponenter og logikk som ikke er relevant for
-  applikasjonen basert på kravene for applikasjonen.
+  applikasjonen basert på kravene for applikasjonen
 
 ##### Dokumentasjon
 
@@ -745,79 +745,79 @@ Tid brukt for denne delaktiveten er på rundt 20 minutter.
 
 ##### Mål
 
-- Ferdigstille Program-filen for utviklingstesting.
+- Ferdigstille Program-filen for utviklingstesting
 
 - Modifisere NuGet-pakker for å inkludere Polly (retry-system for feil
-  og seeding).
+  og seeding)
 
 - Endre tilkoblingsstreng til databasen fra template-database til en
-  egen database basert på DatabaseContext.
+  egen database basert på DatabaseContext
 
 ##### Hva ble gjort
 
 - Endret oppsettet i kontrollerne for å inkludere
   JSON-formatspesifikasjon for serialisering av enums til lesbar tekst.
   Dette gjør at Swagger viser enum-verdier som tekst i stedet for tall,
-  noe som forbedrer lesbarheten under testing.
+  noe som forbedrer lesbarheten under testing
 
 - Implementerte egendefinerte unntak som en del av dependency injection,
   samt en utvidelsesmetode i ASP.NET Core for å støtte disse.
   AddProblemDetails() ble brukt for standardiserte feilmeldinger og
-  HTTP-responser.
+  HTTP-responser
 
 - Implementerte sentrale services for dependency injection (utstyr-,
-  lån- og brukerservice).
+  lån- og brukerservice)
 
 - Modifiserte database-seeding-logikken slik at DatabaseContextSeed
-  kjøres og fyller databasen med testdata.
+  kjøres og fyller databasen med testdata
 
 - Implementerte UseExceptionHandler, en sentral
   feilhåndteringsmiddleware i ASP.NET Core som fanger opp uventede feil,
-  logger dem og returnerer brukervennlige feilmeldinger.
+  logger dem og returnerer brukervennlige feilmeldinger
 
 - Installerte Polly via NuGet, noe som oppdaterte prosjektfilen med
-  nødvendig package reference for retry-logikk.
+  nødvendig package reference for retry-logikk
 
 - Endret tilkoblingsstreng til databasen ved å erstatte
-  template-databasen med en egen database basert på DatabaseContext.
+  template-databasen med en egen database basert på DatabaseContext
 
 ##### Hvordan ble arbeidet utført
 
 - Identifiserte nødvendige dependency injections for at hele
-  applikasjonen skulle fungere korrekt både i frontend og backend.
+  applikasjonen skulle fungere korrekt både i frontend og backend
 
 - Implementerte disse avhengighetene og støttefunksjonene slik at de er
-  kompatible med resten av applikasjonens arkitektur.
+  kompatible med resten av applikasjonens arkitektur
 
 - NuGet-installasjonene oppdaterer automatisk prosjektfilen med
-  nødvendige referanser.
+  nødvendige referanser
 
 - Tilkoblingsstrengen ble endret ved å oppdatere database-navnet i
-  ConnectionString, uten å endre resten av konfigurasjonen.
+  ConnectionString, uten å endre resten av konfigurasjonen
 
 ##### Resultat
 
-- Program-filen ble ferdigstilt og fungerer nå for utvikling og testing.
+- Program-filen ble ferdigstilt og fungerer nå for utvikling og testing
 
 - Polly ble integrert, noe som gir bedre robusthet gjennom
-  retry-mekanisme ved feil.
+  retry-mekanisme ved feil
 
 - Swagger viser nå enum-verdier som lesbar tekst, som forbedrer
-  utvikleropplevelsen.
+  utvikleropplevelsen
 
 - Standardisert feilhåndtering ble implementert gjennom
-  AddProblemDetails() og UseExceptionHandler.
+  AddProblemDetails() og UseExceptionHandler
 
 - Dependency injection ble utvidet og stabilisert for kjerne-services
-  (bruker, utstyr og lån).
+  (bruker, utstyr og lån)
 
 - Database av seeding fungerer korrekt ved oppstart og fyller databasen
-  med testdata.
+  med testdata
 
 - Tilkoblingen til databasen peker nå mot riktig database basert på
-  DatabaseContext.
+  DatabaseContext
 
-- har fått en mer robust, konsistent og produksjons nære konfigurasjon.
+- har fått en mer robust, konsistent og produksjons nære konfigurasjon
 
 ##### Dokumentasjon
 
@@ -847,26 +847,26 @@ utlånssystemet.
 ##### Hva ble gjort
 
 - Implementerte BorrowerCreateDto for å sikre trygg og kontrollert
-  opprettelse av låntakere gjennom API-et.
+  opprettelse av låntakere gjennom API-et
 
 - Implementerte EquipmentQueriedDto for å kunne returnere utstyr sammen
-  med nødvendig informasjon for paginering og filtrering.
+  med nødvendig informasjon for paginering og filtrering
 
 - Implementerte en sentral API-tjeneste i klientapplikasjonen for
-  kommunikasjon mellom frontend og backend.
+  kommunikasjon mellom frontend og backend
 
 - Implementerte en navigasjonslinje (Navbar) for enkel navigering mellom
-  applikasjonens sider.
+  applikasjonens sider
 
 - Implementerte utstyrsmodulen (Equipments) som grunnlag for visning og
-  håndtering av utstyr.
+  håndtering av utstyr
 
 - Implementerte utstyr Header for å presentere relevant informasjon og
-  funksjonalitet knyttet til utstyrsoversikten.
+  funksjonalitet knyttet til utstyrsoversikten
 
-- Implementerte Index-siden som inngangspunkt til applikasjonen.
+- Implementerte Index-siden som inngangspunkt til applikasjonen
 
-- Implementerte utstyr-siden for visning og administrasjon av utstyr.
+- Implementerte utstyr-siden for visning og administrasjon av utstyr
 
 - Implementerte metoder for henting av kategorier i utstyrstjenesten
 
@@ -875,63 +875,63 @@ utlånssystemet.
 - Identifiserte behovet for bedre kontroll over opprettelse av
   låntakere. Derfor opprettet jeg en DTO som inneholder kun nødvendig
   informasjon for opprettelse av en ny låntaker. DTO-en legger også til
-  rette for validering av innkommende data.
+  rette for validering av innkommende data
 
 - Opprettet en DTO for paginering av utstyr. Denne inneholder: En liste
   med utstyr. Antall utstyr som vises per side. Hvilken side brukeren
   befinner seg på. Totalt antall sider basert på antall utstyr og antall
-  utstyr per side.
+  utstyr per side
 
 - Opprettet en sentral API-tjeneste i klientapplikasjonen ved hjelp av
   Angular sin HttpClient, som brukes til å sende HTTP-forespørsler
-  mellom frontend og backend.
+  mellom frontend og backend
 
 - Opprettet en navigasjonskomponent som benytter en egendefinert
   brukerservice for å holde oversikt over innlogget bruker. Angular sitt
   router-system brukes også til å håndtere utlogging og videresending
-  til innloggingssiden.
+  til innloggingssiden
 
 - Opprettet en komponent for utstyrsoversikten som viser alt utstyr og
   tilhørende informasjon. Komponenten inkluderer funksjonalitet for
-  filtrering, sortering, søk og opprettelse av nytt utstyr.
+  filtrering, sortering, søk og opprettelse av nytt utstyr
 
 - Opprettet en komponent for visning av enkeltutstyr, der brukeren kan
-  endre, låne ut, levere tilbake eller slette utstyr.
+  endre, låne ut, levere tilbake eller slette utstyr
 
 - Opprettet en komponent for detaljvisning av utstyr som presenterer
-  generell informasjon og lånehistorikk.
+  generell informasjon og lånehistorikk
 
 - Opprettet en indekskomponent som samler navigasjonslinjen og resten av
   applikasjonens innhold ved hjelp av Angular sin router-outlet, som
-  fungerer som en dynamisk plassholder for sidene i applikasjonen.
+  fungerer som en dynamisk plassholder for sidene i applikasjonen
 
 - Opprettet en ny metode som ser etter alle kategorier som ligger i
-  databasen og sender dem ut som en liste av kategori DTO-er.
+  databasen og sender dem ut som en liste av kategori DTO-er
 
 ##### Resultat
 
 - Grunnleggende backend- og frontend-funksjonalitet for utlånssystemet
-  ble etablert.
+  ble etablert
 
 - Opprettelse av låntakere ble sikrere og mer kontrollert gjennom bruk
-  av DTO-er.
+  av DTO-er
 
 - Paginering av utstyr ble implementert og muliggjør effektiv håndtering
-  av større datamengder.
+  av større datamengder
 
 - Kommunikasjonen mellom frontend og backend ble sentralisert gjennom en
   felles API-tjeneste. Navigasjon mellom applikasjonens sider ble
-  implementert gjennom en egen navigasjonslinje.
+  implementert gjennom en egen navigasjonslinje
 
 - Utstyrsmodulen ble etablert med støtte for visning, søk, filtrering og
   sortering av utstyr. Det ble utviklet egne sider for både
-  utstyrsoversikt og detaljvisning av enkeltutstyr.
+  utstyrsoversikt og detaljvisning av enkeltutstyr
 
 - Grunnlaget for videre utvikling av utlåns-, administrasjons- og
-  brukerfunksjonalitet ble etablert i frontend-applikasjonen.
+  brukerfunksjonalitet ble etablert i frontend-applikasjonen
 
 - Metode for å hente ut kategorier som vi kan gjenbruke igjennom
-  applikasjon ved oppretting og endring av utstyr.
+  applikasjon ved oppretting og endring av utstyr
 
 ##### Sammenligning mot plan 
 
@@ -984,74 +984,74 @@ databehandling og paginering, samt videreutvikle brukergrensesnittet.
 ##### Hva ble gjort
 
 - Modifiserte DTO-en for uthenting av utstyr for å forbedre støtte for
-  paginering og presentasjon i brukergrensesnittet.
+  paginering og presentasjon i brukergrensesnittet
 
 - Oppdaterte bruker-DTO-en ved å gjøre feltene «fullt navn» og «e-post»
-  obligatoriske.
+  obligatoriske
 
 - Modifiserte brukerkontrolleren for å legge til et nytt endepunkt som
-  kan opprette låntakere.
+  kan opprette låntakere
 
 - Modifiserte lånekontrolleren for å inkludere et kategoriendepunkt som
-  kan hente alle kategorier for utstyret.
+  kan hente alle kategorier for utstyret
 
 - Implementerte logikk for opprettelse av nye låntakere i
-  brukerservicen.
+  brukerservicen
 
 - Oppdaterte metoden for uthenting av alt utstyr slik at den støtter
-  paginering og filtrering på låntakere.
+  paginering og filtrering på låntakere
 
 - Modifiserte metoden for opprettelse av lån i låneservicen slik at
   utstyrets status automatisk oppdateres til «utlånt» når et lån
-  opprettes.
+  opprettes
 
 - Oppdaterte utstyrsenheten og DTO-logikken slik at nåværende lån
-  inkluderes i responsen.
+  inkluderes i responsen
 
 - Oppdaterte seeding-logikken for utstyr basert på endringer i
-  utstyrsenheten.
+  utstyrsenheten
 
 - Oppdaterte låneenheten og DTO-logikken slik at informasjon om
-  tilknyttet utstyr inkluderes.
+  tilknyttet utstyr inkluderes
 
 - Modifiserte innloggingskomponenten fra templaten slik at den samsvarer
   med skissene, håndterer validering bedre og kommuniserer med
-  CurrentUserService for å holde oversikt over innlogget bruker.
+  CurrentUserService for å holde oversikt over innlogget bruker
 
 - Oppdaterte utstyrsoversikten med forbedret detaljvisning og støtte for
-  paginering.
+  paginering
 
 - Videreutviklet siden for enkeltutstyr slik at den viser detaljert
-  informasjon om utstyret og dets lånehistorikk.
+  informasjon om utstyret og dets lånehistorikk
 
 ##### Resultat
 
 - Datavalidering og dataoverføring mellom frontend og backend ble
-  forbedret gjennom oppdaterte DTO-er.
+  forbedret gjennom oppdaterte DTO-er
 
 - Systemet støtter nå opprettelse og administrasjon av låntakere gjennom
-  egne API-endepunkter.
+  egne API-endepunkter
 
 - Utstyrsoversikten fikk støtte for paginering og filtrering, noe som
-  forbedrer brukeropplevelsen og skalerbarheten.
+  forbedrer brukeropplevelsen og skalerbarheten
 
 - Relasjonene mellom utstyr og utlån håndteres mer korrekt og konsistent
-  i systemet.
+  i systemet
 
 - Opprettelse av lån oppdaterer automatisk utstyrets status, noe som
-  reduserer risikoen for inkonsistente data.
+  reduserer risikoen for inkonsistente data
 
 - Seed-data og datamodeller ble oppdatert for å støtte den nye
-  funksjonaliteten.
+  funksjonaliteten
 
 - Innloggingsløsningen ble forbedret med bedre validering og håndtering
   av innlogget bruker
 
 - Utstyrsoversikten og detaljsidene ble mer funksjonelle og informative
-  for brukeren.
+  for brukeren
 
 - Løsningen ble mer robust, vedlikeholdbar og bedre tilpasset videre
-  utvikling av utlånssystemet.
+  utvikling av utlånssystemet
 
 ##### Dokumentasjon
 
@@ -1089,19 +1089,19 @@ videre utvikling.
 
 ##### Hva ble gjort
 
-- Refaktorerte applikasjonens routing.
+- Refaktorerte applikasjonens routing
 
-- Implementerte CurrentUserService.
+- Implementerte CurrentUserService
 
-- Migrerte frontend til Angulars standalone-arkitektur.
+- Migrerte frontend til Angulars standalone-arkitektur
 
-- Opprettet ApplicationConfig.
+- Opprettet ApplicationConfig
 
-- Implementerte global styling.
+- Implementerte global styling
 
-- Integrerte Geist-fonten.
+- Integrerte Geist-fonten
 
-- Oppdaterte App Component til å fungere som applikasjonens wrapper.
+- Oppdaterte App Component til å fungere som applikasjonens wrapper
 
 ##### Hvordan ble arbeidet utført
 
@@ -1109,61 +1109,61 @@ videre utvikling.
   oppsett. Routing-løsningen ble derfor refaktorert til å benytte
   CurrentUserService og dens route guard i stedet for den tidligere
   løsningen. Samtidig ble rutingen oppdatert til å følge Angulars
-  anbefalte prinsipper for lasting og visning av komponenter.
+  anbefalte prinsipper for lasting og visning av komponenter
 
 - CurrentUserService ble opprettet for å kontrollere hvilke ruter
   brukeren har tilgang til, samt holde oversikt over innlogget bruker
   gjennom hele applikasjonen. Denne informasjonen benyttes blant annet i
-  navigasjonslinjen.
+  navigasjonslinjen
 
 - Navbar-komponenten og Router Outlet ble importert til AppComponent og
   plassert i en felles container. Containeren ble stylet med Flexbox,
   flex-direction: column og gap for å skape en mer strukturert
-  sideoppbygning.
+  sideoppbygning
 
 - Opprettet en Angular ApplicationConfig for å konfigurere ruting,
   HTTP-kommunikasjon og ytelsesoptimalisering. Dette erstattet bruken av
   platformBrowserDynamic, som ikke lenger er den anbefalte løsningen for
-  moderne Angular-applikasjoner basert på standalone-komponenter.
+  moderne Angular-applikasjoner basert på standalone-komponenter
 
 - Integrerte en global stilfil som inneholder forhåndsdefinerte
   variabler for blant annet farger, spacing og andre gjenbrukbare
-  designelementer.
+  designelementer
 
 - Integrerte Geist-fonten som standard skrifttype i applikasjonen for å
-  sikre et konsistent og moderne visuelt uttrykk.
+  sikre et konsistent og moderne visuelt uttrykk
 
 - Applikasjonen ble migrert til Angulars standalone-arkitektur ved hjelp
   av ApplicationConfig. Dette gir et enklere og mer moderne oppsett uten
-  behov for tradisjonelle Angular-moduler.
+  behov for tradisjonelle Angular-moduler
 
 ##### Resultat
 
 - Applikasjonen ble migrert til Angulars moderne standalone-arkitektur,
   noe som reduserte kompleksiteten i oppsettet og gjorde løsningen
-  enklere å vedlikeholde.
+  enklere å vedlikeholde
 
 - Routing-systemet ble forbedret ved å benytte CurrentUserService og
-  route guards for å kontrollere tilgang til beskyttede sider.
+  route guards for å kontrollere tilgang til beskyttede sider
 
 - Applikasjonen fikk en sentral brukerhåndtering som gjør det mulig å
-  holde oversikt over innlogget bruker på tvers av komponenter.
+  holde oversikt over innlogget bruker på tvers av komponenter
 
 - AppComponent fungerer nå som en felles wrapper for applikasjonen og
-  sørger for en mer konsistent oppbygning av brukergrensesnittet.
+  sørger for en mer konsistent oppbygning av brukergrensesnittet
 
 - ApplicationConfig ble implementert for å konfigurere ruting,
-  HTTP-klient og andre globale tjenester på en moderne måte.
+  HTTP-klient og andre globale tjenester på en moderne måte
 
 - En felles stilprofil ble etablert gjennom globale CSS-variabler og
-  gjenbrukbare designverdier.
+  gjenbrukbare designverdier
 
 - Geist-fonten ble integrert som standard skrifttype for å gi et mer
-  konsistent visuelt uttrykk.
+  konsistent visuelt uttrykk
 
 - Endringene la et bedre grunnlag for videre utvikling av
   frontend-applikasjonen og gjorde kodebasen mer strukturert,
-  vedlikeholdbar og skalerbar.
+  vedlikeholdbar og skalerbar
 
 ##### Dokumentasjon
 
@@ -1196,80 +1196,80 @@ tilgjengelige gjennom et intuitivt og brukervennlig grensesnitt.
 ##### Hva ble gjort
 
 - Implementere et dialogvindu for opprettelse av nytt utstyr, slik at
-  brukere kan registrere nytt utstyr i systemet.
+  brukere kan registrere nytt utstyr i systemet
 
 - Implementere et dialogvindu for redigering av eksisterende utstyr,
-  slik at informasjon kan oppdateres ved behov.
+  slik at informasjon kan oppdateres ved behov
 
 - Implementere et dialogvindu for sletting av utstyr, inkludert
-  bekreftelse før handlingen utføres.
+  bekreftelse før handlingen utføres
 
 - Implementere et dialogvindu for utlån av utstyr, slik at brukere kan
-  registrere nye utlån og knytte utstyr til en låntaker.
+  registrere nye utlån og knytte utstyr til en låntaker
 
 - Implementere et dialogvindu for innlevering av utstyr, slik at aktive
-  utlån kan avsluttes og utstyrets status oppdateres.
+  utlån kan avsluttes og utstyrets status oppdateres
 
 - Sikre at dialogvinduene kommuniserer med backend-API-et og håndterer
   validering, brukerinteraksjon og oppdatering av data på en konsistent
-  måte.
+  måte
 
 - Etablere en enhetlig brukeropplevelse ved å benytte samme
-  designprinsipper og arbeidsflyt på tvers av alle dialogvinduene.
+  designprinsipper og arbeidsflyt på tvers av alle dialogvinduene
 
 ##### Hvordan ble arbeidet utført
 
 - Opprettet et dialogvindu for registrering av nytt utstyr. Dette
   dialogvinduet ble utformet med tanke på gjenbruk, slik at samme
-  struktur kunne benyttes i flere av de øvrige dialogvinduene.
+  struktur kunne benyttes i flere av de øvrige dialogvinduene
 
 - Utviklet et skjema for opprettelse av utstyr som inneholder alle
   nødvendige felter definert i kravspesifikasjonen. Skjemaet ble også
   utformet for å kunne gjenbrukes i de øvrige dialogvinduene der det var
-  hensiktsmessig.
+  hensiktsmessig
 
 - Opprettet dialogvinduer for redigering av utstyr, sletting av utstyr,
   utlån og innlevering ved å ta utgangspunkt i opprettelsesdialogen og
-  tilpasse den til den aktuelle funksjonaliteten.
+  tilpasse den til den aktuelle funksjonaliteten
 
 - Implementerte dedikerte API-kall i frontendens API-tjeneste for hver
   av dialogene. Disse benytter DTO-ene som ble utviklet i aktivitet 4,
   delaktivitet 4.1, for å sikre korrekt dataoverføring mellom frontend
-  og backend.
+  og backend
 
 - Benyttet etablerte designprinsipper og arbeidsflyt fra tidligere
   prosjekter for å sikre en enhetlig brukeropplevelse og effektivisere
-  utviklingsprosessen.
+  utviklingsprosessen
 
 - Testet dialogvinduene fortløpende for å verifisere at validering,
-  brukerinteraksjon og kommunikasjon med backend fungerte som forventet.
+  brukerinteraksjon og kommunikasjon med backend fungerte som forventet
 
 ##### Resultat
 
 - Det ble implementert dialogvinduer for opprettelse, redigering og
   sletting av utstyr, slik at brukeren kan administrere utstyr direkte
-  fra brukergrensesnittet.
+  fra brukergrensesnittet
 
 - Det ble implementert dialogvinduer for utlån og innlevering av utstyr,
   som gjør det mulig å registrere og avslutte utlån på en strukturert
-  måte.
+  måte
 
 - Dialogvinduene benytter en felles struktur og et enhetlig design, noe
-  som gir en konsistent brukeropplevelse gjennom hele applikasjonen.
+  som gir en konsistent brukeropplevelse gjennom hele applikasjonen
 
 - Gjenbruk av komponenter og skjemaer reduserte mengden duplisert kode
-  og gjorde videre utvikling og vedlikehold enklere.
+  og gjorde videre utvikling og vedlikehold enklere
 
 - Dialogvinduene ble koblet mot backend-API-et gjennom dedikerte
   endepunkter i frontendens API-tjeneste, slik at data kan opprettes,
-  oppdateres og slettes direkte fra brukergrensesnittet.
+  oppdateres og slettes direkte fra brukergrensesnittet
 
 - Validering av brukerinput ble implementert for å sikre at nødvendige
-  data er fylt inn før forespørsler sendes til backend.
+  data er fylt inn før forespørsler sendes til backend
 
 - Funksjonaliteten for administrasjon av utstyr og utlån ble fullført i
   henhold til kravene og danner grunnlaget for videre testing og
-  ferdigstillelse av applikasjonen.
+  ferdigstillelse av applikasjonen
 
 ##### Kommentar
 
@@ -1304,76 +1304,76 @@ med gjennom hele systemet.
 - Videreutviklet logikken for utlån og innlevering av utstyr. Knappene
   for utlån og innlevering vises nå kun når handlingen er tilgjengelig.
   For å kunne levere inn utstyr må utstyret være utlånt og brukeren må
-  være den samme som registrerte utlånet.
+  være den samme som registrerte utlånet
 
 - Implementerte søk etter eksisterende låntakere basert på
   e-postadresse. Når brukeren skriver inn en e-postadresse i
   utlånsdialogen, sendes et søk mot databasen for å undersøke om
-  låntakeren allerede eksisterer.
+  låntakeren allerede eksisterer
 
 - Dersom en eksisterende låntaker blir funnet, deaktiveres feltene for
   fornavn, etternavn og telefonnummer. Brukeren kan da kun endre
-  e-postadressen eller benytte den eksisterende låntakeren.
+  e-postadressen eller benytte den eksisterende låntakeren
 
 - For å redusere unødvendige forespørsler ble det implementert debounce
   på søkefeltet. Før API-kallet utføres kontrolleres det at
   e-postadressen er gyldig og at samme søk ikke allerede finnes i
-  klientens cache.
+  klientens cache
 
 - API-kallet ble implementert ved hjelp av RxJS og switchMap. Når en
   låntaker blir funnet, oppdateres skjemaet automatisk ved å patche inn
-  informasjonen som er hentet fra databasen.
+  informasjonen som er hentet fra databasen
 
 - Opprettet flere seedede utstyrsenheter i databasen for å gjøre testing
-  av funksjonalitet enklere og mer effektiv.
+  av funksjonalitet enklere og mer effektiv
 
 - Gjennomgikk valideringslogikken i datamodellene og identifiserte flere
   områder hvor valideringen kunne forbedres. Dette ble løst gjennom
-  justeringer i konstruktører og tilhørende valideringsregler.
+  justeringer i konstruktører og tilhørende valideringsregler
 
 - Modifiserte bruker-, utlåns- og utstyrstjenestene slik at nødvendige
   relasjoner og DTO-er inkluderes i spørringene. For eksempel hentes nå
-  låntakerinformasjon gjennom utlånet når utstyrsdata lastes inn.
+  låntakerinformasjon gjennom utlånet når utstyrsdata lastes inn
 
 - Under testing ble det oppdaget at søk etter låntakere ikke håndterte
   todelte navn korrekt. Søkelogikken ble derfor refaktorert slik at både
-  fornavn, etternavn og kombinasjoner av disse håndteres mer presist.
+  fornavn, etternavn og kombinasjoner av disse håndteres mer presist
 
 - Oppdaterte prosjektets README med informasjon om installasjon, bruk og
   innlogging. Samtidig ble prosjektets ikon erstattet og HTML-tittelen
-  oppdatert for å gi applikasjonen en mer profesjonell presentasjon.
+  oppdatert for å gi applikasjonen en mer profesjonell presentasjon
 
 - Gjennomførte ytterligere testing av funksjonalitet og
-  brukergrensesnitt for å verifisere at kravene i oppgaven var oppfylt.
+  brukergrensesnitt for å verifisere at kravene i oppgaven var oppfylt
 
 ##### Resultat
 
 - Utlånsprosessen ble forbedret ved at eksisterende låntakere automatisk
-  kan identifiseres ved hjelp av e-postadresse.
+  kan identifiseres ved hjelp av e-postadresse
 
 - Brukeropplevelsen ved registrering av utlån ble forbedret gjennom
   automatisk utfylling av låntakerinformasjon og redusert behov for
-  manuell registrering.
+  manuell registrering
 
 - Valideringen i systemet ble styrket, noe som reduserer risikoen for
-  ugyldige data og feilregistreringer.
+  ugyldige data og feilregistreringer
 
 - Tjenestelagene og DTO-ene ble oppdatert slik at nødvendig informasjon
-  om utlån og låntakere er tilgjengelig i hele applikasjonen.
+  om utlån og låntakere er tilgjengelig i hele applikasjonen
 
 - Søkefunksjonaliteten for låntakere ble forbedret og håndterer nå både
-  enkle og sammensatte navn på en mer robust måte.
+  enkle og sammensatte navn på en mer robust måte
 
 - Datagrunnlaget for testing ble utvidet gjennom flere seedede
   utstyrsenheter, noe som gjorde det enklere å verifisere funksjonalitet
-  og oppdage feil.
+  og oppdage feil
 
 - Dokumentasjonen og den visuelle presentasjonen av prosjektet ble
   forbedret gjennom oppdatering av README, applikasjonsikon og
-  nettstedstittel.
+  nettstedstittel
 
 - Aktiviteten bidro til å gjøre utlånssystemet mer brukervennlig, robust
-  og tilpasset kravene i oppgaven.
+  og tilpasset kravene i oppgaven
 
 ##### Kommentar
 
@@ -1414,28 +1414,28 @@ vedlikeholdbarheten i løsningen.
 ##### Hva ble gjort
 
 - Forbedre utlåns- og utstyrsmodellen ved å inkludere nødvendig
-  informasjon om låntakere der dette er relevant.
+  informasjon om låntakere der dette er relevant
 
 - Begrense hvilke felter brukeren kan påvirke direkte ved opprettelse av
-  utstyr og utlån, slik at forretningsregler håndheves av systemet.
+  utstyr og utlån, slik at forretningsregler håndheves av systemet
 
 - Videreutvikle DTO-er for å støtte den oppdaterte utlånslogikken og
-  sikre en mer konsistent dataflyt mellom frontend og backend.
+  sikre en mer konsistent dataflyt mellom frontend og backend
 
 - Refaktorere eksisterende kode for å benytte tydeligere og mer
-  beskrivende metodenavn.
+  beskrivende metodenavn
 
 - Utvide frontendens API-tjeneste med støtte for oppslag av låntakere
-  basert på e-postadresse.
+  basert på e-postadresse
 
 - Standardisere utformingen av dialogvinduer gjennom etablering av
-  felles stilregler og gjenbrukbar styling.
+  felles stilregler og gjenbrukbar styling
 
 - Videreutvikle applikasjonens visuelle uttrykk ved å justere globale
-  designverdier og forbedre kontrast og lesbarhet.
+  designverdier og forbedre kontrast og lesbarhet
 
 - Forbedre kodekvaliteten og vedlikeholdbarheten ved å redusere teknisk
-  gjeld og tilpasse løsningen til tidligere implementerte endringer.
+  gjeld og tilpasse løsningen til tidligere implementerte endringer
 
 ##### Hvordan ble arbeidet utført
 
@@ -1445,68 +1445,68 @@ vedlikeholdbarheten i løsningen.
   nå ferdigstilt i frontendens API-tjeneste. Dette gjør at brukere ikke
   kan angi status ved opprettelse av utstyr, noe som bidrar til å
   håndheve systemets forretningsregler og redusere risikoen for ugyldige
-  data.
+  data
 
 - Implementerte låntakerinformasjon i LoanDto-en i frontend. Denne
   endringen ble tidligere gjennomført i backend som en del av
   [delaktivitet 5.2](#delaktivitet-5.2-modifisering-av-logikk), og ble
   nå ferdigstilt i frontend for å sikre at nødvendig informasjon om
-  låntakeren er tilgjengelig ved håndtering av utlån.
+  låntakeren er tilgjengelig ved håndtering av utlån
 
 - Fjernet lånestatus fra DTO-en for opprettelse av utlån i frontend.
   Endringen ble gjennomført for å hindre at brukere kan sette status
   direkte ved opprettelse av et utlån. Status skal i stedet håndteres av
-  systemets forretningslogikk.
+  systemets forretningslogikk
 
 - Refaktoriserte utstyrsrelaterte metoder i frontendens API-tjeneste.
   Metoder med generiske eller misvisende navn ble erstattet med mer
   beskrivende navn, slik som updateEquipment og deleteEquipment. Dette
-  bidrar til bedre lesbarhet og vedlikeholdbarhet i kodebasen.
+  bidrar til bedre lesbarhet og vedlikeholdbarhet i kodebasen
 
 - Implementerte et nytt endepunkt i API-tjenesten for oppslag av
   låntakere basert på e-postadresse. Endepunktet følger samme struktur
-  og prinsipper som de øvrige API-kallene i applikasjonen.
+  og prinsipper som de øvrige API-kallene i applikasjonen
 
 - Flyttet og samlet CSS-regler for dialogvinduer i en egen global
   dialogstilfil. Dette gjør det enklere å gjenbruke styling og sikrer et
-  mer konsistent design på tvers av applikasjonen.
+  mer konsistent design på tvers av applikasjonen
 
 - Modifiserte den globale stilfilen ved å gjøre bakgrunnsfargen for
   tilgjengelig utstyr noe mørkere. Endringen ble gjennomført for å
   forbedre kontrasten og gjøre statusindikatorene lettere å oppfatte for
-  brukeren.
+  brukeren
 
 ##### Resultat
 
 - Frontendens DTO-er ble oppdatert til å samsvare med endringene som
   tidligere ble gjennomført i backend, noe som sikret en konsistent
-  dataflyt mellom klient og server.
+  dataflyt mellom klient og server
 
 - Brukere kan ikke lenger angi status ved opprettelse av utstyr eller
   utlån. Dette bidrar til å håndheve forretningsreglene i systemet og
-  reduserer risikoen for ugyldige data.
+  reduserer risikoen for ugyldige data
 
 - Låntakerinformasjon ble inkludert i utlånsmodellen, slik at frontend
   har tilgang til nødvendig informasjon om tilknyttede låntakere uten
-  ekstra databehandling.
+  ekstra databehandling
 
 - API-tjenesten i frontend ble utvidet med støtte for oppslag av
   låntakere via e-postadresse, noe som legger grunnlaget for en mer
-  effektiv utlånsprosess.
+  effektiv utlånsprosess
 
 - Metodenavn i API-tjenesten ble standardisert og gjort mer beskrivende,
-  noe som forbedrer lesbarheten og vedlikeholdbarheten i kodebasen.
+  noe som forbedrer lesbarheten og vedlikeholdbarheten i kodebasen
 
 - Dialogvinduene benytter nå en felles CSS-fil, som gir et mer
-  konsistent design og reduserer duplisert kode.
+  konsistent design og reduserer duplisert kode
 
 - Den globale stilprofilen ble justert ved å mørkne bakgrunnsfargen for
   tilgjengelig utstyr, noe som forbedrer kontrast og synlighet i
-  brukergrensesnittet.
+  brukergrensesnittet
 
 - Aktiviteten bidro til å forbedre kodekvaliteten, standardisere
   brukergrensesnittet og ferdigstille frontend-endringer som var
-  nødvendige for å støtte den oppdaterte utlånsfunksjonaliteten.
+  nødvendige for å støtte den oppdaterte utlånsfunksjonaliteten
 
 ##### Kommentar
 
